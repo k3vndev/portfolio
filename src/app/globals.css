@@ -16,3 +16,7 @@
 
   --color-bluish-gray: #8c9db5;
 }
+
+@utility text-gradient {
+  @apply bg-linear-to-r from-10-purple via-20-light-purple to-30-blue bg-clip-text text-transparent;
+}
