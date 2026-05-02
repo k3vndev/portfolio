@@ -1,5 +1,7 @@
 export * from './chip'
 export * from './icons'
 export * from './link-button'
+export * from './project-tile'
 export * from './section'
 export * from './section-header'
+export * from './technology-badges'

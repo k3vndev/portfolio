@@ -1,5 +1,6 @@
-import { LinkButton, Section, SectionHeader } from '@components'
+import { LinkButton, ProjectTile, Section, SectionHeader } from '@components'
 import type { Social } from '@types'
+import { PROJECTS } from '@/consts'
 
 export default function Home() {
   const socials: Social[] = [
@@ -52,6 +53,8 @@ export default function Home() {
             label: 'Production Apps'
           }}
         />
+
+        <ProjectTile project={PROJECTS[0]} horizontal color='10-purple' />
       </Section>
     </>
   )
