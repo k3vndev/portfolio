@@ -17,7 +17,7 @@ def main() -> None:
         content = f.read()
 
         # Find all lines that match the pattern of icon definitions, e.g., "export const IconName = () => { ... }"
-        regex_pattern = r"export const (\w+) ="
+        regex_pattern = r"export const (\w+)\s*="
         icon_names: list[str] = re.findall(regex_pattern, content)
 
         for icon_name in icon_names:
@@ -57,24 +57,31 @@ def main() -> None:
         + "\n\n"
     )
 
+    # Import statements
     content += "import type { IconName } from '@types'\n"
     content += "import {\n"
     for name in names_map:
         content += f"  {name['component']},\n"
     content += "} from '@consts'\n\n"
 
-    content += (
-        "export const getIconsMap = (props?: React.SVGProps<SVGSVGElement>) => ({\n"
-    )
+    # Define a const map
+    content += "export const iconsMap = {\n"
     for name in names_map:
-        content += f"  '{name['key']}': <{name['component']} {{...props}} />,\n"
-    content += "})\n\n"
+        content += f"  '{name['key']}': {name['component']},\n"
+    content += "}\n\n"
 
-    content += "type Props = { name: IconName } & React.SVGProps<SVGSVGElement>\n"
-    content += (
-        "export const Icon = ({ name, ...props }: Props) => getIconsMap(props)[name]\n"
-    )
+    # Define the Props type
+    content += "interface Props extends Omit<React.SVGProps<SVGSVGElement>, 'name'> {\n"
+    content += "  name: IconName\n"
+    content += "}\n\n"
 
+    # Define the icons component
+    content += "export const Icon = ({ name, ...props }: Props) => {\n"
+    content += "  const Component = iconsMap[name]\n"
+    content += "  return <Component {...props} />\n"
+    content += "}\n\n"
+
+    # Write the content to the output file
     with output_file.open("w", encoding="utf-8") as f:
         f.write(content)
 

@@ -1,6 +1,6 @@
-import type { getIconsMap } from '@components'
+import type { iconsMap } from '@components'
 
-export type IconName = keyof ReturnType<typeof getIconsMap>
+export type IconName = keyof typeof iconsMap
 
 export interface Social {
   icon: IconName
