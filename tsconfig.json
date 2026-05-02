@@ -27,7 +27,8 @@
       "@hook": ["./src/hook"],
       "@hook/*": ["./src/hook/*"],
       "@consts": ["./src/consts"],
-      "@consts/*": ["./src/consts/*"]
+      "@consts/*": ["./src/consts/*"],
+      "@types": ["./src/types.d.ts"]
     }
   },
   "include": [

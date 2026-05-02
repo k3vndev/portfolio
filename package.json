@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently -k -n next,icons -c cyan,magenta \"next dev\" \"pnpm run watch:icon-types\"",
     "build": "next build",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "generate:icon-types": "python scripts/generate_icon_values.py",
+    "watch:icon-types": "chokidar \"src/consts/icons.tsx\" -c \"pnpm run generate:icon-types\" --initial"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -23,6 +25,8 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^9.2.1"
   }
 }

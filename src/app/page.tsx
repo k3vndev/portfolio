@@ -1,19 +1,20 @@
-import { GithubIcon, LinkButton, LinkedInIcon, ResumeIcon, Section } from '@components'
+import { Icon, LinkButton, Section } from '@components'
+import type { Social } from '@types'
 
 export default function Home() {
-  const socials = [
+  const socials: Social[] = [
     {
-      icon: <ResumeIcon />,
+      icon: 'resume',
       href: '/curriculum-vitae.pdf',
       label: 'Resume'
     },
     {
-      icon: <GithubIcon />,
+      icon: 'github',
       href: 'https://github.com/k3vndev',
       label: 'GitHub'
     },
     {
-      icon: <LinkedInIcon />,
+      icon: 'linked-in',
       href: 'https://www.linkedin.com/in/kevinrdev/',
       label: 'LinkedIn'
     }
@@ -34,7 +35,7 @@ export default function Home() {
       <div className='flex flex-wrap items-center sm:gap-4 gap-2 mt-2'>
         {socials.map(({ icon, href, label }) => (
           <LinkButton key={label} href={href} newTab>
-            {icon}
+            <Icon name={icon} />
             {label}
           </LinkButton>
         ))}
