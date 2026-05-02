@@ -1,6 +1,7 @@
 import { LinkButton, ProjectTile, Section, SectionHeader } from '@components'
-import type { Social } from '@types'
-import { PROJECTS } from '@/consts'
+import { PROJECTS } from '@consts'
+import type { PrimaryColor, Project, Social } from '@types'
+import { useMemo } from 'react'
 
 export default function Home() {
   const socials: Social[] = [
@@ -20,6 +21,19 @@ export default function Home() {
       label: 'LinkedIn'
     }
   ]
+
+  const projects = useMemo(() => {
+    const colors: PrimaryColor[] = ['10-purple', '20-light-purple', '30-blue']
+    const maxTechnologies = 3
+
+    return PROJECTS.slice(0, 3).map((project, index) => ({
+      project: {
+        ...project,
+        technologies: project.technologies.slice(0, maxTechnologies)
+      },
+      color: colors[index]
+    }))
+  }, [])
 
   return (
     <>
@@ -43,7 +57,7 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section>
+      <Section className='[&>div]:gap-12'>
         <SectionHeader
           title='Featured Projects'
           icon='code'
@@ -54,7 +68,17 @@ export default function Home() {
           }}
         />
 
-        <ProjectTile project={PROJECTS[0]} horizontal color='10-purple' />
+        <div className='grid lg:grid-cols-2 grid-cols-1 gap-8'>
+          {projects.map(({ project, color }, i) => (
+            <ProjectTile
+              key={project.title}
+              project={project}
+              horizontal={!i}
+              color={color}
+              className='first:lg:col-[span_2]'
+            />
+          ))}
+        </div>
       </Section>
     </>
   )

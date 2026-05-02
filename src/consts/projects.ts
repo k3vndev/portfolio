@@ -23,11 +23,43 @@ export const TECHNOLOGIES_MAP = {
 export const PROJECTS: Project[] = [
   {
     title: 'Studymate',
-    technologies: ['next-js', 'supabase', 'open-ai'], // Add more technologies later
+    technologies: ['next-js', 'supabase', 'open-ai'],
     overview:
       'AI-powered learning platform that generates and manages personalized Studyplans.\nUsers can track progress, complete structured learning paths, and interact with an AI assistant designed to guide their studies in real time.',
     code: 'https://github.com/k3vndev/studymate',
     preview: 'https://studymate-web.vercel.app',
-    images: ['/studymate/1.webp']
+    images: ['1.webp'],
+    metrics: [
+      {
+        value: '7+',
+        label: 'UI Screens'
+      },
+      {
+        value: '3+',
+        label: 'AI-Powered Features'
+      },
+      {
+        value: 'Full',
+        label: 'Auth System'
+      }
+    ]
+  },
+  {
+    title: 'Pixi Paint',
+    technologies: ['next-js', 'mongo-db', 'tailwind-css'],
+    overview:
+      'Web-based pixel art platform for creating and sharing 8×8 artwork.\nIncludes a public gallery and small interactive mini-games.',
+    code: 'https://github.com/k3vndev/pixi-paint',
+    preview: 'https://pixi-paint.vercel.app',
+    images: ['1.webp']
+  },
+  {
+    title: 'Quizzie',
+    technologies: ['react', 'node-js', 'mongo-db'],
+    overview:
+      'Full-stack platform for creating, managing, and taking custom quizzes.\nSupports authentication, scoring, and interactive quiz experiences.',
+    code: 'https://github.com/K3vnDev/quizzie',
+    preview: 'https://quizzie-wb.netlify.app',
+    images: ['1.webp']
   }
 ]
