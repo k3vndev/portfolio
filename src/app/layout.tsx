@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { APP_FONTS_VARIABLES } from '@consts'
 import Head from 'next/head'
+import { BlursBG } from '@/components/backgrounds'
 
 export const metadata: Metadata = {
   title: "Kevin's Portfolio — Fullstack Developer | Next.js, TypeScript, Web Applications",
@@ -22,7 +23,11 @@ export default function RootLayout({
       <Head>
         <link rel='icon' href='/favicon.svg' />
       </Head>
-      <body className='min-h-full flex flex-col bg-[#02020A]'>{children}</body>
+      <body className='min-h-full flex flex-col bg-[#02020A]'>
+        {children}
+
+        <BlursBG />
+      </body>
     </html>
   )
 }
