@@ -11,7 +11,7 @@ export const Section = ({
   ...props
 }: React.PropsWithChildren<React.HTMLAttributes<HTMLElement>>) => (
   <section
-    className={cn('relative flex justify-center w-screen px-4 sm:px-8 lg:px-16 xl:px-0', className)}
+    className={cn('relative flex justify-center w-screen px-4 sm:px-8 lg:px-16 xl:px-0 py-32', className)}
     {...props}
   >
     <div className='xl:max-w-6xl w-full flex flex-col gap-4'>{children}</div>

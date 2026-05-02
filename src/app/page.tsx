@@ -1,4 +1,4 @@
-import { Icon, LinkButton, Section } from '@components'
+import { LinkButton, Section, SectionHeader } from '@components'
 import type { Social } from '@types'
 
 export default function Home() {
@@ -21,25 +21,38 @@ export default function Home() {
   ]
 
   return (
-    <Section className='lg:pt-64 md:pt-48 pt-32'>
-      <div className='flex flex-col font-bold font-poppins not-sm:gap-2'>
-        <h2 className='lg:text-6xl text-5xl text-white'>Hello, I'm</h2>
-        <h1 className='lg:text-8xl md:text-7xl text-6xl text-gradient pb-3'>Kevin Rodríguez</h1>
-      </div>
+    <>
+      <Section className='lg:pt-64 md:pt-48 pt-32'>
+        <div className='flex flex-col font-bold font-poppins not-sm:gap-2'>
+          <h2 className='lg:text-6xl text-5xl text-white'>Hello, I'm</h2>
+          <h1 className='lg:text-8xl md:text-7xl text-6xl text-gradient pb-3'>Kevin Rodríguez</h1>
+        </div>
 
-      <h2 className='font-plus text-bluish-gray lg:text-3xl text-2xl font-medium'>
-        I build full-stack web applications with Next.js and TypeScript. <br />
-        From dashboards to AI tools, I focus on shipping quality.
-      </h2>
+        <h2 className='font-plus text-bluish-gray lg:text-3xl text-2xl font-medium'>
+          I build full-stack web applications with Next.js and TypeScript. <br />
+          From dashboards to AI tools, I focus on shipping quality.
+        </h2>
 
-      <div className='flex flex-wrap items-center sm:gap-4 gap-2 mt-2'>
-        {socials.map(({ icon, href, label }) => (
-          <LinkButton key={label} href={href} newTab>
-            <Icon name={icon} />
-            {label}
-          </LinkButton>
-        ))}
-      </div>
-    </Section>
+        <div className='flex flex-wrap items-center sm:gap-4 gap-2 mt-2'>
+          {socials.map(({ icon, href, label }) => (
+            <LinkButton key={label} href={href} newTab icon={icon}>
+              {label}
+            </LinkButton>
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeader
+          title='Featured Projects'
+          icon='code'
+          overview='Full-stack products built from scratch, featuring real-world logic, scalable systems, and AI integration.'
+          chip={{
+            color: '20-light-purple',
+            label: 'Production Apps'
+          }}
+        />
+      </Section>
+    </>
   )
 }

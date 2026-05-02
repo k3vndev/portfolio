@@ -1,4 +1,6 @@
+import type { IconName } from '@types'
 import { cn } from '@utils'
+import { Icon } from './icons'
 
 interface Props {
   small?: boolean
@@ -6,10 +8,11 @@ interface Props {
   className?: string
   children: React.ReactNode
   style?: React.CSSProperties
+  icon?: IconName
   href: string
 }
 
-export const LinkButton = ({ small, newTab, className, children, ...props }: Props) => {
+export const LinkButton = ({ small, newTab, className, children, icon, ...props }: Props) => {
   const target = newTab
     ? {
         target: '_blank',
@@ -34,6 +37,7 @@ export const LinkButton = ({ small, newTab, className, children, ...props }: Pro
             : '[&>svg]:size-8 [&>svg]:max-w-8 text-2xl px-7 py-2'
         )}
       >
+        {icon && <Icon name={icon} />}
         {children}
       </div>
 

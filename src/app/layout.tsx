@@ -23,7 +23,7 @@ export default function RootLayout({
       <Head>
         <link rel='icon' href='/favicon.svg' />
       </Head>
-      <body className='min-h-full flex flex-col bg-[#02020A]'>
+      <body className='min-h-full flex flex-col bg-[#02020A] overflow-x-hidden'>
         {children}
 
         <BlursBG />
