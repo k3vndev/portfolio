@@ -24,7 +24,7 @@ export const LinkButton = ({ small, newTab, className, children, icon, ...props 
   return (
     <Link
       className={cn(
-        'rounded-full p-0.5 relative flex items-center justify-center overflow-clip group active:scale-90 transition',
+        'rounded-full p-0.5 relative flex items-center justify-center overflow-clip group hover:scale-102 active:scale-90 active:brightness-50 transition',
         className
       )}
       {...target}

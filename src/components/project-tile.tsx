@@ -40,9 +40,9 @@ export const ProjectTile = ({ project, horizontal, className, color }: Props) =>
 
   const imageSrc = (() => {
     const hasImages = images && images.length > 0
-    if (!hasImages) return '/studymate/1.webp' // Default image if none provided
+    if (!hasImages) return '/projects/studymate/1.webp' // Default image if none provided
 
-    return `/${titleKebab}/${images[0]}`
+    return `/projects/${titleKebab}/${images[0]}`
   })()
 
   const horizontalStyles =
@@ -55,7 +55,7 @@ export const ProjectTile = ({ project, horizontal, className, color }: Props) =>
       <Link
         href={`/projects/${titleKebab}`}
         className={cn(
-          'flex w-full bg-linear-to-br to-white/10 border transition rounded-[1.25rem] overflow-clip group/project relative',
+          'flex w-full bg-linear-to-br to-white/10 border transition rounded-[1.25rem] overflow-clip group/project relative backdrop-blur-md',
           horizontalStyles.link,
           colorStyles[color].link
         )}
@@ -83,7 +83,10 @@ export const ProjectTile = ({ project, horizontal, className, color }: Props) =>
           {/* Paragraphs (splitted by newline) */}
           <div className='flex flex-col gap-2'>
             {overview.split('\n').map((line, i) => (
-              <p className='font-plus text-lg font-light' key={i}>
+              <p
+                className='font-plus text-lg font-light text-white/75 group-hover/project:text-white/85 transition'
+                key={i}
+              >
                 {line}
               </p>
             ))}
@@ -99,8 +102,7 @@ export const ProjectTile = ({ project, horizontal, className, color }: Props) =>
                 <div
                   key={i}
                   className={cn(
-                    'flex flex-col items-start font-poppins rounded-xl px-3 py-1 border bg-linear-to-br to-white/5 pointer-events-none',
-                    colorStyles[color].link
+                    'flex flex-col items-start font-poppins rounded-xl px-3 py-1 border border-white/10 bg-linear-to-r from-10-purple/10 via-20-light-purple/10 to-30-blue/10 pointer-events-none'
                   )}
                 >
                   <span className='font-semibold text-lg'>{metric.value}</span>
@@ -125,7 +127,7 @@ export const ProjectTile = ({ project, horizontal, className, color }: Props) =>
       {/* Link buttons, positioned absolutely to avoid hydration issues */}
       <div
         className={cn(
-          'flex items-center gap-2 mt-3 absolute md:left-12 sm:left-8 left-4',
+          'flex items-center gap-2 mt-3 absolute md:left-12 sm:left-8 left-4 z-10',
           metrics?.length ? 'md:bottom-34 sm:bottom-28 bottom-24' : 'md:bottom-12 sm:bottom-8 bottom-4'
         )}
       >

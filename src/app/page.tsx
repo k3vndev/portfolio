@@ -1,6 +1,7 @@
 import { LinkButton, ProjectTile, Section, SectionHeader } from '@components'
+import { SpiralsBG } from '@components/backgrounds'
 import { PROJECTS } from '@consts'
-import type { PrimaryColor, Project, Social } from '@types'
+import type { PrimaryColor, Social } from '@types'
 import { useMemo } from 'react'
 
 export default function Home() {
@@ -37,7 +38,8 @@ export default function Home() {
 
   return (
     <>
-      <Section className='lg:pt-64 md:pt-48 pt-32'>
+      {/* Hero */}
+      <Section className='lg:pt-64 md:pt-48 pt-32 md:pb-48 pb-32'>
         <div className='flex flex-col font-bold font-poppins not-sm:gap-2'>
           <h2 className='lg:text-6xl text-5xl text-white'>Hello, I'm</h2>
           <h1 className='lg:text-8xl md:text-7xl text-6xl text-gradient pb-3'>Kevin Rodríguez</h1>
@@ -57,13 +59,16 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section className='[&>div]:gap-12'>
+      {/* Web projects */}
+      <Section className='[&>div]:gap-12' bordered>
+        <SpiralsBG />
+
         <SectionHeader
           title='Featured Projects'
           icon='code'
           overview='Full-stack products built from scratch, featuring real-world logic, scalable systems, and AI integration.'
           chip={{
-            color: '20-light-purple',
+            color: '10-purple',
             label: 'Production Apps'
           }}
         />
@@ -79,6 +84,19 @@ export default function Home() {
             />
           ))}
         </div>
+      </Section>
+
+      {/* Experience */}
+      <Section>
+        <SectionHeader
+          title='My Experience'
+          overview='My journey spans game development, full-stack projects, and freelance work, focused on building systems and shipping real products.'
+          icon='briefcase'
+          chip={{
+            color: '20-light-purple',
+            label: 'Freelance Work'
+          }}
+        />
       </Section>
     </>
   )

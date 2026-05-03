@@ -36,7 +36,7 @@ export const PROJECTS: Project[] = [
       },
       {
         value: '3+',
-        label: 'AI-Powered Features'
+        label: 'AI Features'
       },
       {
         value: 'Full',
