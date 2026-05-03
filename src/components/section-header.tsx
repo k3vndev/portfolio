@@ -1,5 +1,6 @@
 import { Chip, Icon } from '@components'
 import type { IconName, PrimaryColor } from '@types'
+import { cn } from '@utils'
 
 interface Props {
   title: string
@@ -9,10 +10,11 @@ interface Props {
     label: string
     color: PrimaryColor
   }
+  className?: string
 }
 
-export const SectionHeader = ({ title, icon, overview, chip }: Props) => (
-  <header>
+export const SectionHeader = ({ title, icon, overview, chip, className }: Props) => (
+  <header className={cn('z-10', className)}>
     {chip && (
       <Chip color={chip.color} className='mb-4'>
         {chip.label}

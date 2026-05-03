@@ -1,4 +1,5 @@
 import type { iconsMap } from '@components'
+import type { TECHNOLOGIES_MAP } from '@consts/projects'
 
 export type IconName = keyof typeof iconsMap
 
@@ -9,4 +10,19 @@ export interface Social {
   icon: IconName
   href: string
   label: string
+}
+
+export type Technology = keyof typeof TECHNOLOGIES_MAP
+
+export interface Project {
+  title: string
+  technologies: Technology[]
+  overview: string
+  images: string[]
+  preview: string
+  code: string
+  metrics?: Array<{
+    value: string
+    label: string
+  }>
 }

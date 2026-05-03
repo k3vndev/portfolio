@@ -1,5 +1,8 @@
-import { LinkButton, Section, SectionHeader } from '@components'
-import type { Social } from '@types'
+import { LinkButton, ProjectTile, Section, SectionHeader } from '@components'
+import { SpiralsBG } from '@components/backgrounds'
+import { PROJECTS } from '@consts'
+import type { PrimaryColor, Social } from '@types'
+import { useMemo } from 'react'
 
 export default function Home() {
   const socials: Social[] = [
@@ -20,9 +23,23 @@ export default function Home() {
     }
   ]
 
+  const projects = useMemo(() => {
+    const colors: PrimaryColor[] = ['10-purple', '20-light-purple', '30-blue']
+    const maxTechnologies = 3
+
+    return PROJECTS.slice(0, 3).map((project, index) => ({
+      project: {
+        ...project,
+        technologies: project.technologies.slice(0, maxTechnologies)
+      },
+      color: colors[index]
+    }))
+  }, [])
+
   return (
     <>
-      <Section className='lg:pt-64 md:pt-48 pt-32'>
+      {/* Hero */}
+      <Section className='lg:pt-64 md:pt-48 pt-32 md:pb-48 pb-32'>
         <div className='flex flex-col font-bold font-poppins not-sm:gap-2'>
           <h2 className='lg:text-6xl text-5xl text-white'>Hello, I'm</h2>
           <h1 className='lg:text-8xl md:text-7xl text-6xl text-gradient pb-3'>Kevin Rodríguez</h1>
@@ -42,14 +59,42 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section>
+      {/* Web projects */}
+      <Section className='[&>div]:gap-12' bordered>
+        <SpiralsBG />
+
         <SectionHeader
           title='Featured Projects'
           icon='code'
           overview='Full-stack products built from scratch, featuring real-world logic, scalable systems, and AI integration.'
           chip={{
-            color: '20-light-purple',
+            color: '10-purple',
             label: 'Production Apps'
+          }}
+        />
+
+        <div className='grid lg:grid-cols-2 grid-cols-1 gap-8'>
+          {projects.map(({ project, color }, i) => (
+            <ProjectTile
+              key={project.title}
+              project={project}
+              horizontal={!i}
+              color={color}
+              className='first:lg:col-[span_2]'
+            />
+          ))}
+        </div>
+      </Section>
+
+      {/* Experience */}
+      <Section>
+        <SectionHeader
+          title='My Experience'
+          overview='My journey spans game development, full-stack projects, and freelance work, focused on building systems and shipping real products.'
+          icon='briefcase'
+          chip={{
+            color: '20-light-purple',
+            label: 'Freelance Work'
           }}
         />
       </Section>
