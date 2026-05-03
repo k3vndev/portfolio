@@ -22,12 +22,14 @@ export const SectionHeader = ({ title, icon, overview, chip, className }: Props)
     )}
 
     <div className='flex items-center gap-2'>
-      {icon && <Icon name={icon} className='size-12 mb-3' />}
-      <h2 className='text-gradient font-poppins text-6xl font-bold pb-3'>{title}</h2>
+      {icon && <Icon name={icon} className='sm:size-12 sm:min-w-12 size-8 min-w-8 mb-3' />}
+      <h2 className='text-gradient font-poppins md:text-6xl sm:text-5xl text-4xl font-bold pb-3'>{title}</h2>
     </div>
 
     {overview && (
-      <h3 className='font-plus text-bluish-gray lg:text-2xl text-xl font-light max-w-4xl'>{overview}</h3>
+      <h3 className='font-plus text-bluish-gray md:text-2xl sm:text-xl text-lg font-light max-w-4xl'>
+        {overview}
+      </h3>
     )}
   </header>
 )

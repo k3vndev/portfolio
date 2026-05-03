@@ -20,3 +20,7 @@
 @utility text-gradient {
   @apply bg-linear-to-r from-10-purple via-20-light-purple to-30-blue bg-clip-text text-transparent;
 }
+
+@utility base-card {
+  @apply bg-linear-to-br to-white/10 border transition rounded-[1.25rem] overflow-clip backdrop-blur-md;
+}

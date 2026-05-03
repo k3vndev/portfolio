@@ -30,14 +30,14 @@ export const Chip = ({ children, color, className }: Props) => {
   return (
     <small
       className={cn(
-        'flex items-center gap-2 border w-fit px-4 py-0.75 rounded-full',
+        'flex items-center gap-2 border w-fit sm:px-4 px-3 sm:py-0.75 py-0.5 rounded-full',
         styles.border,
         styles.bg,
         className
       )}
     >
-      <div className={cn('size-3 rounded-full', styles.dot)} />
-      <span className='text-[#C5D0DE] text-base font-plus'>{children}</span>
+      <div className={cn('sm:size-3 size-2 rounded-full', styles.dot)} />
+      <span className='text-[#C5D0DE] md:text-base sm:text-sm text-xs font-plus'>{children}</span>
     </small>
   )
 }

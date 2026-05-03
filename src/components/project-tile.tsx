@@ -1,9 +1,9 @@
 'use client'
 
-import { LinkButton, TechnologyBadges } from '@components'
+import { CardDecoration, LinkButton, TechnologyBadges } from '@components'
 import { useResponsiveness } from '@hooks'
 import type { PrimaryColor, Project } from '@types'
-import { cn } from '@utils'
+import { cn, getCardColorStyles } from '@utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo } from 'react'
@@ -23,21 +23,6 @@ export const ProjectTile = ({ project, horizontal, className, color }: Props) =>
 
   const { media } = useResponsiveness()
 
-  const colorStyles: Record<PrimaryColor, { link: string; line: string }> = {
-    '10-purple': {
-      link: 'from-10-purple/10 hover:border-10-purple/40 border-10-purple/20',
-      line: 'from-10-purple/0 via-10-purple/75 to-10-purple/0'
-    },
-    '20-light-purple': {
-      link: 'from-20-light-purple/10 to hover:border-20-light-purple/40 border-20-light-purple/20',
-      line: 'from-20-light-purple/0 via-20-light-purple/75 to-20-light-purple/0'
-    },
-    '30-blue': {
-      link: 'from-30-blue/10 hover:border-30-blue/40 border-30-blue/20',
-      line: 'from-30-blue/0 via-30-blue/75 to-30-blue/0'
-    }
-  }
-
   const imageSrc = (() => {
     const hasImages = images && images.length > 0
     if (!hasImages) return '/projects/studymate/1.webp' // Default image if none provided
@@ -54,11 +39,7 @@ export const ProjectTile = ({ project, horizontal, className, color }: Props) =>
     <article className={cn('relative', className)} aria-label={`Project card for ${title}`}>
       <Link
         href={`/projects/${titleKebab}`}
-        className={cn(
-          'flex w-full bg-linear-to-br to-white/10 border transition rounded-[1.25rem] overflow-clip group/project relative backdrop-blur-md',
-          horizontalStyles.link,
-          colorStyles[color].link
-        )}
+        className={cn('flex w-full base-card group', horizontalStyles.link, getCardColorStyles(color))}
       >
         <Image
           width={imageSize}
@@ -84,7 +65,7 @@ export const ProjectTile = ({ project, horizontal, className, color }: Props) =>
           <div className='flex flex-col gap-2'>
             {overview.split('\n').map((line, i) => (
               <p
-                className='font-plus text-lg font-light text-white/75 group-hover/project:text-white/85 transition'
+                className='font-plus text-lg font-light text-white/75 group-hover:text-white/85 transition'
                 key={i}
               >
                 {line}
@@ -116,12 +97,7 @@ export const ProjectTile = ({ project, horizontal, className, color }: Props) =>
         </div>
 
         {/* Decorative line at start */}
-        <div
-          className={cn(
-            'absolute h-1 w-full top-0 left-0 bg-linear-to-r group-hover/project:scale-x-150 transition-transform',
-            colorStyles[color].line
-          )}
-        />
+        <CardDecoration color={color} />
       </Link>
 
       {/* Link buttons, positioned absolutely to avoid hydration issues */}

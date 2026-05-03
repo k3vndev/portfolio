@@ -1,30 +1,13 @@
-import { LinkButton, ProjectTile, Section, SectionHeader } from '@components'
+import { LinkButton, ProjectTile, Section, SectionHeader, TimelineEntry } from '@components'
 import { SpiralsBG } from '@components/backgrounds'
-import { PROJECTS } from '@consts'
-import type { PrimaryColor, Social } from '@types'
+import { PROJECTS, SOCIALS, TIMELINE_ENTRIES } from '@consts'
+import { getPrimaryColor } from '@utils'
 import { useMemo } from 'react'
 
 export default function Home() {
-  const socials: Social[] = [
-    {
-      icon: 'resume',
-      href: '/curriculum-vitae.pdf',
-      label: 'Resume'
-    },
-    {
-      icon: 'github',
-      href: 'https://github.com/k3vndev',
-      label: 'GitHub'
-    },
-    {
-      icon: 'linked-in',
-      href: 'https://www.linkedin.com/in/kevinrdev/',
-      label: 'LinkedIn'
-    }
-  ]
+  const socials = useMemo(() => Object.values(SOCIALS), [])
 
   const projects = useMemo(() => {
-    const colors: PrimaryColor[] = ['10-purple', '20-light-purple', '30-blue']
     const maxTechnologies = 3
 
     return PROJECTS.slice(0, 3).map((project, index) => ({
@@ -32,7 +15,7 @@ export default function Home() {
         ...project,
         technologies: project.technologies.slice(0, maxTechnologies)
       },
-      color: colors[index]
+      color: getPrimaryColor(index)
     }))
   }, [])
 
@@ -87,7 +70,7 @@ export default function Home() {
       </Section>
 
       {/* Experience */}
-      <Section>
+      <Section className='[&>div]:gap-12'>
         <SectionHeader
           title='My Experience'
           overview='My journey spans game development, full-stack projects, and freelance work, focused on building systems and shipping real products.'
@@ -97,6 +80,12 @@ export default function Home() {
             label: 'Freelance Work'
           }}
         />
+
+        <div className='flex flex-col gap-6'>
+          {TIMELINE_ENTRIES.map((entry, index) => (
+            <TimelineEntry key={index} index={index} {...entry} />
+          ))}
+        </div>
       </Section>
     </>
   )

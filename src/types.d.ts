@@ -26,3 +26,10 @@ export interface Project {
     label: string
   }>
 }
+
+export interface TimelineEntry {
+  year: string
+  title: string
+  overview: string
+  chip: string
+}
