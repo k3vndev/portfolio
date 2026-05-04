@@ -38,6 +38,7 @@ import {
   Gamepad,
   Unity,
   CSharp,
+  Blender,
 } from '@consts'
 
 export const iconsMap = {
@@ -77,6 +78,7 @@ export const iconsMap = {
   'gamepad': Gamepad,
   'unity': Unity,
   'c-sharp': CSharp,
+  'blender': Blender,
 }
 
 interface Props extends Omit<React.SVGProps<SVGSVGElement>, 'name'> {

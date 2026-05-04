@@ -19,7 +19,8 @@ export const TECHNOLOGIES_MAP = {
   'open-ai': 'OpenAI',
   leaflet: 'Leaflet',
   'c-sharp': 'C#',
-  unity: 'Unity'
+  unity: 'Unity',
+  blender: 'Blender'
 } as const satisfies Partial<Record<IconName, string>>
 
 export const PROJECTS: Project[] = [
@@ -68,7 +69,7 @@ export const PROJECTS: Project[] = [
 
 export const GAMEDEV_PROJECT: Project = {
   title: 'My Snowy Friend',
-  technologies: ['unity', 'c-sharp'],
+  technologies: ['unity', 'c-sharp', 'blender'],
   images: ['1.png'],
   overview:
     'My Snowy Friend is a cozy adventure game where the player helps a snowman rescue a lost cat and guide it back home through a winter world filled with small puzzles and exploration.\nI designed and built the entire project solo, including gameplay systems, mechanics, and overall architecture.',

@@ -108,6 +108,38 @@ export default function Home() {
 
         <GridBG />
       </Section>
+
+      <Section>
+        <SectionHeader
+          title='About Me'
+          icon='user'
+          chip={{
+            color: '10-purple',
+            label: 'Builder Mindset'
+          }}
+          className='mb-0'
+        />
+
+        <div className='flex flex-col gap-4 text-bluish-gray text-xl font-plus font-medium **:[strong]:text-low-gradient **:[strong]:font-bold'>
+          <p>
+            I’m Kevin Rodríguez, a full-stack developer focused on building scalable web applications with
+            <strong>Next.js</strong>, <strong>TypeScript</strong>, and <strong>Supabase</strong>. I turn ideas
+            into production-ready products with strong technical foundations.
+          </p>
+          <p>
+            I focus on <strong>system design</strong>, <strong>clean architecture</strong>, and creating
+            intuitive, reliable user experiences. My background in game development helps me manage{' '}
+            <strong>complex logic</strong> and structure large applications. I’ve worked on personal and
+            freelance projects, delivering real-world solutions involving
+            <strong>authentication</strong>, <strong>performance optimization</strong>, and{' '}
+            <strong>AI integration</strong>.
+          </p>
+        </div>
+
+        <LinkButton href='/contact' icon='mail' className='mt-4'>
+          Contact Me
+        </LinkButton>
+      </Section>
     </>
   )
 }
