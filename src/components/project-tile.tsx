@@ -37,6 +37,11 @@ export const ProjectTile = ({ project, horizontal, className, color, imageSize }
       ? { link: 'flex-row-reverse', img: 'w-1/2', main: 'md:py-12 sm:py-8 py-4 md:pl-12 sm:pl-8 pl-4' }
       : { link: 'flex-col', img: 'w-full h-64', main: 'md:pb-12 sm:pb-8 pb-4 md:px-12 sm:px-8 px-4' }
 
+  const maskImageGradient =
+    media.lg && horizontal
+      ? 'linear-gradient(to right, transparent, white 50%)'
+      : 'linear-gradient(to bottom, white 50%, transparent)'
+
   return (
     <article className={cn('relative', className)} aria-label={`Project card for ${title}`}>
       <Link
@@ -51,10 +56,8 @@ export const ProjectTile = ({ project, horizontal, className, color, imageSize }
           className={cn('object-cover', horizontalStyles.img)}
           draggable={false}
           style={{
-            maskImage:
-              media.lg && horizontal
-                ? 'linear-gradient(to right, transparent, white 50%)'
-                : 'linear-gradient(to bottom, white 50%, transparent)'
+            WebkitMaskImage: maskImageGradient,
+            maskImage: maskImageGradient
           }}
         />
 

@@ -100,7 +100,7 @@ export default function Home() {
         />
 
         <ProjectTile
-          className='**:[img]:h-100'
+          className='**:[img]:h-110'
           project={GAMEDEV_PROJECT}
           color='30-blue'
           imageSize={{ width: 900, height: 500 }}

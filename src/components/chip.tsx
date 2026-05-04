@@ -36,7 +36,7 @@ export const Chip = ({ children, color, className }: Props) => {
         className
       )}
     >
-      <div className={cn('sm:size-3 size-2 rounded-full', styles.dot)} />
+      <div className={cn('sm:size-3 size-2 rounded-full animate-pulse', styles.dot)} />
       <span className='text-[#C5D0DE] md:text-base sm:text-sm text-xs font-plus'>{children}</span>
     </small>
   )

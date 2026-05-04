@@ -70,7 +70,7 @@ export const PROJECTS: Project[] = [
 export const GAMEDEV_PROJECT: Project = {
   title: 'My Snowy Friend',
   technologies: ['unity', 'c-sharp', 'blender'],
-  images: ['1.png'],
+  images: ['1.gif'],
   overview:
     'My Snowy Friend is a cozy adventure game where the player helps a snowman rescue a lost cat and guide it back home through a winter world filled with small puzzles and exploration.\nI designed and built the entire project solo, including gameplay systems, mechanics, and overall architecture.',
   metrics: [
