@@ -1,6 +1,6 @@
 import type { PrimaryColor, Social, TimelineEntry } from '@types'
 
-export const SOCIALS: Record<string, Social> = {
+export const SOCIALS: Record<'RESUME' | 'GITHUB' | 'LINKEDIN', Social> = {
   RESUME: {
     icon: 'resume',
     href: '/curriculum-vitae.pdf',
@@ -16,7 +16,7 @@ export const SOCIALS: Record<string, Social> = {
     href: 'https://www.linkedin.com/in/kevinrdev/',
     label: 'LinkedIn'
   }
-}
+} as const
 
 export const TIMELINE_ENTRIES: TimelineEntry[] = [
   {

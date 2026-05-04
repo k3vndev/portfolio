@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { Footer } from '@components'
+import { BlursBG } from '@components/backgrounds'
 import { APP_FONTS_VARIABLES } from '@consts'
 import Head from 'next/head'
-import { BlursBG } from '@/components/backgrounds'
 
 export const metadata: Metadata = {
   title: "Kevin's Portfolio — Fullstack Developer | Next.js, TypeScript, Web Applications",
@@ -27,6 +28,7 @@ export default function RootLayout({
         {children}
 
         <BlursBG />
+        <Footer />
       </body>
     </html>
   )

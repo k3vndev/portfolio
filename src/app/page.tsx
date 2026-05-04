@@ -50,10 +50,7 @@ export default function Home() {
           title='Featured Projects'
           icon='code'
           overview='Full-stack products built from scratch, featuring real-world logic, scalable systems, and AI integration.'
-          chip={{
-            color: '10-purple',
-            label: 'Production Apps'
-          }}
+          chip={{ color: '10-purple', label: 'Production Apps' }}
         />
 
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-8'>
@@ -75,10 +72,7 @@ export default function Home() {
           title='My Experience'
           overview='My journey spans game development, full-stack projects, and freelance work, focused on building systems and shipping real products.'
           icon='briefcase'
-          chip={{
-            color: '20-light-purple',
-            label: 'Freelance Work'
-          }}
+          chip={{ color: '20-light-purple', label: 'Freelance Work' }}
         />
 
         <div className='flex flex-col gap-6'>
@@ -93,10 +87,7 @@ export default function Home() {
           title='Game Development'
           icon='gamepad'
           overview='My experience here has strengthened my ability to design and manage complex systems, handle state-driven logic, and structure large interactive projects from scratch.'
-          chip={{
-            color: '30-blue',
-            label: 'System Design'
-          }}
+          chip={{ color: '30-blue', label: 'System Design' }}
         />
 
         <ProjectTile
@@ -113,16 +104,13 @@ export default function Home() {
         <SectionHeader
           title='About Me'
           icon='user'
-          chip={{
-            color: '10-purple',
-            label: 'Builder Mindset'
-          }}
+          chip={{ color: '10-purple', label: 'Builder Mindset' }}
           className='mb-0'
         />
 
         <div className='flex flex-col gap-4 text-bluish-gray text-xl font-plus font-medium **:[strong]:text-low-gradient **:[strong]:font-bold'>
           <p>
-            I’m Kevin Rodríguez, a full-stack developer focused on building scalable web applications with
+            I’m Kevin Rodríguez, a full-stack developer focused on building scalable web applications with{' '}
             <strong>Next.js</strong>, <strong>TypeScript</strong>, and <strong>Supabase</strong>. I turn ideas
             into production-ready products with strong technical foundations.
           </p>
@@ -130,9 +118,8 @@ export default function Home() {
             I focus on <strong>system design</strong>, <strong>clean architecture</strong>, and creating
             intuitive, reliable user experiences. My background in game development helps me manage{' '}
             <strong>complex logic</strong> and structure large applications. I’ve worked on personal and
-            freelance projects, delivering real-world solutions involving
-            <strong>authentication</strong>, <strong>performance optimization</strong>, and{' '}
-            <strong>AI integration</strong>.
+            freelance projects, delivering real-world solutions involving <strong>authentication</strong>,{' '}
+            <strong>performance optimization</strong>, and <strong>AI integration</strong>.
           </p>
         </div>
 

@@ -1,5 +1,7 @@
 export * from './card-decoration'
+export * from './cat'
 export * from './chip'
+export * from './footer'
 export * from './icons'
 export * from './link-button'
 export * from './project-tile'
