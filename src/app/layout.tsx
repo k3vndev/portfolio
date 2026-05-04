@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { Footer } from '@components'
+import { Footer, NavigationBar } from '@components'
 import { BlursBG } from '@components/backgrounds'
 import { APP_FONTS_VARIABLES } from '@consts'
 import Head from 'next/head'
@@ -29,6 +29,7 @@ export default function RootLayout({
 
         <BlursBG />
         <Footer />
+        <NavigationBar />
       </body>
     </html>
   )
