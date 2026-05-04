@@ -14,7 +14,7 @@ interface Props {
 }
 
 export const SectionHeader = ({ title, icon, overview, chip, className }: Props) => (
-  <header className={cn('z-10', className)}>
+  <header className={cn('z-10 mb-10', className)}>
     {chip && (
       <Chip color={chip.color} className='mb-4'>
         {chip.label}

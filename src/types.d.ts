@@ -19,8 +19,8 @@ export interface Project {
   technologies: Technology[]
   overview: string
   images: string[]
-  preview: string
-  code: string
+  preview?: string
+  code?: string
   metrics?: Array<{
     value: string
     label: string

@@ -1,20 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useParallax } from '@hooks'
 
 export const SpiralsBG = () => {
-  const [bgTop, setBgTop] = useState(0)
-
-  useEffect(() => {
-    const parallaxFactor = 0.33
-
-    const handleScroll = () => {
-      setBgTop(window.scrollY * parallaxFactor)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  const bgTop = useParallax()
 
   return (
     <div className='absolute size-full top-0 left-0 bg-black pointer-events-none'>

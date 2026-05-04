@@ -17,7 +17,9 @@ export const TECHNOLOGIES_MAP = {
   zod: 'Zod',
   supabase: 'Supabase',
   'open-ai': 'OpenAI',
-  leaflet: 'Leaflet'
+  leaflet: 'Leaflet',
+  'c-sharp': 'C#',
+  unity: 'Unity'
 } as const satisfies Partial<Record<IconName, string>>
 
 export const PROJECTS: Project[] = [
@@ -63,3 +65,25 @@ export const PROJECTS: Project[] = [
     images: ['1.webp']
   }
 ]
+
+export const GAMEDEV_PROJECT: Project = {
+  title: 'My Snowy Friend',
+  technologies: ['unity', 'c-sharp'],
+  images: ['1.png'],
+  overview:
+    'My Snowy Friend is a cozy adventure game where the player helps a snowman rescue a lost cat and guide it back home through a winter world filled with small puzzles and exploration.\nI designed and built the entire project solo, including gameplay systems, mechanics, and overall architecture.',
+  metrics: [
+    {
+      value: '100%',
+      label: 'Solo Dev'
+    },
+    {
+      value: '10+',
+      label: 'Unique Mechanics'
+    },
+    {
+      value: '5+',
+      label: 'Designed Levels'
+    }
+  ]
+}

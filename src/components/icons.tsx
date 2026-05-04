@@ -35,6 +35,9 @@ import {
   TailwindCSS,
   CSS,
   Briefcase,
+  Gamepad,
+  Unity,
+  CSharp,
 } from '@consts'
 
 export const iconsMap = {
@@ -71,6 +74,9 @@ export const iconsMap = {
   'tailwind-css': TailwindCSS,
   'css': CSS,
   'briefcase': Briefcase,
+  'gamepad': Gamepad,
+  'unity': Unity,
+  'c-sharp': CSharp,
 }
 
 interface Props extends Omit<React.SVGProps<SVGSVGElement>, 'name'> {

@@ -13,12 +13,14 @@ interface Props {
   horizontal?: boolean
   className?: string
   color: PrimaryColor
+  imageSize?: {
+    width: number
+    height: number
+  }
 }
 
-export const ProjectTile = ({ project, horizontal, className, color }: Props) => {
+export const ProjectTile = ({ project, horizontal, className, color, imageSize }: Props) => {
   const { title, technologies, overview, code, preview, images, metrics } = project
-  const imageSize = 500
-
   const titleKebab = useMemo(() => title.toLowerCase().replace(/\s+/g, '-'), [title])
 
   const { media } = useResponsiveness()
@@ -42,8 +44,8 @@ export const ProjectTile = ({ project, horizontal, className, color }: Props) =>
         className={cn('flex w-full base-card group', horizontalStyles.link, getCardColorStyles(color))}
       >
         <Image
-          width={imageSize}
-          height={imageSize}
+          width={imageSize?.width ?? 600}
+          height={imageSize?.height ?? 500}
           alt={`Preview of ${title}`}
           src={imageSrc}
           className={cn('object-cover', horizontalStyles.img)}
@@ -74,7 +76,7 @@ export const ProjectTile = ({ project, horizontal, className, color }: Props) =>
           </div>
 
           {/* Virtual space for link buttons */}
-          <div className='min-h-10 mt-2 w-full' />
+          {(code || preview) && <div className='min-h-10 mt-2 w-full' />}
 
           {/* Metrics */}
           {metrics && (
@@ -101,19 +103,25 @@ export const ProjectTile = ({ project, horizontal, className, color }: Props) =>
       </Link>
 
       {/* Link buttons, positioned absolutely to avoid hydration issues */}
-      <div
-        className={cn(
-          'flex items-center gap-2 mt-3 absolute md:left-12 sm:left-8 left-4 z-10',
-          metrics?.length ? 'md:bottom-34 sm:bottom-28 bottom-24' : 'md:bottom-12 sm:bottom-8 bottom-4'
-        )}
-      >
-        <LinkButton icon='github' href={code} newTab small>
-          Code
-        </LinkButton>
-        <LinkButton icon='preview' href={preview} newTab small>
-          Preview
-        </LinkButton>
-      </div>
+      {(code || preview) && (
+        <div
+          className={cn(
+            'flex items-center gap-2 mt-3 absolute md:left-12 sm:left-8 left-4 z-10',
+            metrics?.length ? 'md:bottom-34 sm:bottom-28 bottom-24' : 'md:bottom-12 sm:bottom-8 bottom-4'
+          )}
+        >
+          {code && (
+            <LinkButton icon='github' href={code} newTab small>
+              Code
+            </LinkButton>
+          )}
+          {preview && (
+            <LinkButton icon='preview' href={preview} newTab small>
+              Preview
+            </LinkButton>
+          )}
+        </div>
+      )}
     </article>
   )
 }

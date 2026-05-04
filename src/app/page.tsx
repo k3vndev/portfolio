@@ -1,6 +1,6 @@
 import { LinkButton, ProjectTile, Section, SectionHeader, TimelineEntry } from '@components'
-import { SpiralsBG } from '@components/backgrounds'
-import { PROJECTS, SOCIALS, TIMELINE_ENTRIES } from '@consts'
+import { GridBG, SpiralsBG } from '@components/backgrounds'
+import { GAMEDEV_PROJECT, PROJECTS, SOCIALS, TIMELINE_ENTRIES } from '@consts'
 import { getPrimaryColor } from '@utils'
 import { useMemo } from 'react'
 
@@ -43,7 +43,7 @@ export default function Home() {
       </Section>
 
       {/* Web projects */}
-      <Section className='[&>div]:gap-12' bordered>
+      <Section bordered>
         <SpiralsBG />
 
         <SectionHeader
@@ -70,7 +70,7 @@ export default function Home() {
       </Section>
 
       {/* Experience */}
-      <Section className='[&>div]:gap-12'>
+      <Section>
         <SectionHeader
           title='My Experience'
           overview='My journey spans game development, full-stack projects, and freelance work, focused on building systems and shipping real products.'
@@ -86,6 +86,27 @@ export default function Home() {
             <TimelineEntry key={index} index={index} {...entry} />
           ))}
         </div>
+      </Section>
+
+      <Section bordered>
+        <SectionHeader
+          title='Game Development'
+          icon='gamepad'
+          overview='My experience here has strengthened my ability to design and manage complex systems, handle state-driven logic, and structure large interactive projects from scratch.'
+          chip={{
+            color: '30-blue',
+            label: 'System Design'
+          }}
+        />
+
+        <ProjectTile
+          className='**:[img]:h-100'
+          project={GAMEDEV_PROJECT}
+          color='30-blue'
+          imageSize={{ width: 900, height: 500 }}
+        />
+
+        <GridBG />
       </Section>
     </>
   )
