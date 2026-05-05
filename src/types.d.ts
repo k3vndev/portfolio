@@ -18,6 +18,7 @@ export interface Project {
   title: string
   technologies: Technology[]
   overview: string
+  description?: string
   images: string[]
   preview?: string
   code?: string
@@ -37,11 +38,15 @@ export interface TimelineEntry {
 
 export type ProjectDetails =
   | {
-      type: 'header'
+      type: 'title'
       content: {
-        title: string
+        text: string
         icon?: IconName
       }
+    }
+  | {
+      type: 'subtitle'
+      content: string
     }
   | {
       type: 'paragraph'

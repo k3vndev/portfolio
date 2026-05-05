@@ -23,7 +23,7 @@
 }
 
 @utility text-low-gradient {
-  @apply bg-linear-to-r from-[#bfc0ff] via-[#cfbffe] to-[#a2cafd] bg-clip-text text-transparent;
+  @apply bg-linear-to-r from-[#cfd0ff] via-[#d6c9ff] to-[#a8ceff] bg-clip-text text-transparent;
 }
 
 @utility base-card {

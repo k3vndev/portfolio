@@ -1,5 +1,6 @@
-import { LinkButton, ProjectTile, Section, SectionHeader, TimelineEntry } from '@components'
+import { LinkButton, ParsedText, Section, SectionHeader, TimelineEntry } from '@components'
 import { GridBG, SpiralsBG } from '@components/backgrounds'
+import { ProjectTile } from '@components/projects'
 import { GAMEDEV_PROJECT, PROJECTS, SOCIALS, TIMELINE_ENTRIES } from '@consts'
 import { getPrimaryColor } from '@utils'
 import { useMemo } from 'react'
@@ -109,18 +110,17 @@ export default function HomePage() {
         />
 
         <div className='flex flex-col gap-4 text-bluish-gray text-xl font-plus font-medium **:[strong]:text-low-gradient **:[strong]:font-bold'>
-          <p>
-            I’m Kevin Rodríguez, a full-stack developer focused on building scalable web applications with{' '}
-            <strong>Next.js</strong>, <strong>TypeScript</strong>, and <strong>Supabase</strong>. I turn ideas
-            into production-ready products with strong technical foundations.
-          </p>
-          <p>
-            I focus on <strong>system design</strong>, <strong>clean architecture</strong>, and creating
-            intuitive, reliable user experiences. My background in game development helps me manage{' '}
-            <strong>complex logic</strong> and structure large applications. I’ve worked on personal and
-            freelance projects, delivering real-world solutions involving <strong>authentication</strong>,{' '}
-            <strong>performance optimization</strong>, and <strong>AI integration</strong>.
-          </p>
+          <ParsedText>
+            I’m Kevin Rodríguez, a full-stack developer focused on building scalable web applications with
+            [Next.js], [TypeScript], and [Supabase]. I turn ideas into production-ready products with strong
+            technical foundations.
+          </ParsedText>
+          <ParsedText>
+            I focus on [system design], [clean architecture], and creating intuitive, reliable user
+            experiences. My background in game development helps me manage [complex logic] and structure large
+            applications. I’ve worked on personal and freelance projects, delivering real-world solutions
+            involving [authentication], [performance optimization], and [AI integration].
+          </ParsedText>
         </div>
 
         <LinkButton href='/contact' icon='mail' className='mt-4'>

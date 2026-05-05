@@ -1,9 +1,10 @@
 'use client'
 
-import { CardDecoration, ProjectLinks, TechnologyBadges } from '@components'
+import { CardDecoration, TechnologyBadges } from '@components'
+import { ProjectLinks } from '@components/projects'
 import { useResponsiveness } from '@hooks'
 import type { PrimaryColor, Project } from '@types'
-import { cn, getCardColorStyles } from '@utils'
+import { cn, getCardColorStyles, kebabCase } from '@utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo } from 'react'
@@ -21,16 +22,16 @@ interface Props {
 
 export const ProjectTile = ({ project, horizontal, className, color, imageSize }: Props) => {
   const { title, technologies, overview, code, preview, images, metrics } = project
-  const titleKebab = useMemo(() => title.toLowerCase().replace(/\s+/g, '-'), [title])
+  const titleKebab = useMemo(() => kebabCase.to(title), [title])
 
   const { media } = useResponsiveness()
 
-  const imageSrc = (() => {
+  const imageSrc = useMemo(() => {
     const hasImages = images && images.length > 0
     if (!hasImages) return '/projects/studymate/1.webp' // Default image if none provided
 
     return `/projects/${titleKebab}/${images[0]}`
-  })()
+  }, [titleKebab, images])
 
   const horizontalStyles =
     horizontal && media.lg

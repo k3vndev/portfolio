@@ -1,9 +1,10 @@
 'use client'
 
 import { Icon } from '@components'
+import { GAMEDEV_PROJECT, PROJECTS } from '@consts'
 import { useResponsiveness } from '@hooks'
 import type { IconName } from '@types'
-import { cn } from '@utils'
+import { cn, kebabCase } from '@utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
@@ -19,8 +20,27 @@ export const NavigationBar = () => {
     { name: 'Contact', href: '/contact', icon: 'mail' }
   ]
 
-  const selectedRoute = useMemo(() => {
-    return routes.find(route => route.href === pathName)
+  const selectedRoute: Route | null = useMemo(() => {
+    // Extract name from '/projects/project-name' to match with '/projects'
+    const regex = /^\/projects(\/.*)?$/
+    const [_, projectName] = pathName.match(regex) || []
+
+    if (projectName) {
+      const allProjects = [...PROJECTS, GAMEDEV_PROJECT]
+      const foundProject = allProjects.find(project => `/${kebabCase.to(project.title)}` === projectName)
+
+      if (!foundProject) {
+        return null
+      }
+
+      return {
+        name: foundProject.title,
+        href: `/projects/${kebabCase.to(foundProject.title)}`,
+        icon: 'code'
+      }
+    }
+
+    return routes.find(route => route.href === pathName) || null
   }, [pathName])
 
   useEffect(() => {
@@ -60,7 +80,7 @@ export const NavigationBar = () => {
             {selectedRoute ? (
               <RouteTile {...selectedRoute} selected className='text-2xl' />
             ) : (
-              <span className='font-poppins font-medium'>404 Not Found</span>
+              <span className='font-poppins font-medium py-3'>404 Not Found</span>
             )}
 
             <button onClick={() => setMobileMenuOpen(true)}>

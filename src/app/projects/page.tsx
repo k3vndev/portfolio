@@ -1,6 +1,7 @@
 'use client'
 
-import { ProjectTile, Section, SectionHeader } from '@components'
+import { Section, SectionHeader } from '@components'
+import { ProjectTile } from '@components/projects'
 import { GAMEDEV_PROJECT, PROJECTS } from '@consts'
 import { useResponsiveness } from '@hooks'
 import type { Project } from '@types'
