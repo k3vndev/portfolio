@@ -4,7 +4,7 @@ import { GAMEDEV_PROJECT, PROJECTS, SOCIALS, TIMELINE_ENTRIES } from '@consts'
 import { getPrimaryColor } from '@utils'
 import { useMemo } from 'react'
 
-export default function Home() {
+export default function HomePage() {
   const socials = useMemo(() => Object.values(SOCIALS), [])
 
   const projects = useMemo(() => {

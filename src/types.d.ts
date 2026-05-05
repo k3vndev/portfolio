@@ -25,6 +25,7 @@ export interface Project {
     value: string
     label: string
   }>
+  details?: ProjectDetails[]
 }
 
 export interface TimelineEntry {
@@ -33,3 +34,20 @@ export interface TimelineEntry {
   overview: string
   chip: string
 }
+
+export type ProjectDetails =
+  | {
+      type: 'header'
+      content: {
+        title: string
+        icon?: IconName
+      }
+    }
+  | {
+      type: 'paragraph'
+      content: string
+    }
+  | {
+      type: 'bullets'
+      content: string[]
+    }

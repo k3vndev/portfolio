@@ -6,7 +6,7 @@ export const Footer = () => {
   const socials = [SOCIALS.LINKEDIN, SOCIALS.GITHUB]
 
   return (
-    <Section className='pb-8 pt-16'>
+    <Section className='pb-8 pt-16 mt-auto'>
       <footer className='mb-12 flex flex-col-reverse gap-5 md:flex-row justify-between xl:gap-24 md:gap-12 mt-auto'>
         <aside className='flex gap-8 items-center justify-between md:justify-start'>
           <div className='flex gap-4'>
