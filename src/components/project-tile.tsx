@@ -91,7 +91,7 @@ export const ProjectTile = ({ project, horizontal, className, color, imageSize }
                     'flex flex-col items-start font-poppins rounded-xl px-3 py-1 border border-white/10 bg-linear-to-r from-10-purple/10 via-20-light-purple/10 to-30-blue/10 pointer-events-none'
                   )}
                 >
-                  <span className='font-semibold text-lg'>{metric.value}</span>
+                  <span className='font-semibold text-lg text-white/85'>{metric.value}</span>
                   <span className='text-xs font-light uppercase text-nowrap text-bluish-gray'>
                     {metric.label}
                   </span>

@@ -48,7 +48,7 @@ export const NavigationBar = () => {
 
   return (
     <nav className='fixed top-6 left-1/2 -translate-x-1/2 rounded-full p-0.5 overflow-clip z-99999 backdrop-blur-md sm:w-fit w-[calc(100vw-2rem)]'>
-      <ul className='flex md:gap-16 gap-8 md:px-16 px-8 py-2 rounded-full bg-black/65 not-sm:justify-between'>
+      <ul className='flex md:gap-8 gap-4 md:px-16 px-8 rounded-full bg-black/65 not-sm:justify-between'>
         {media.sm ? (
           routes.map(route => (
             <li key={route.href}>
@@ -84,8 +84,8 @@ const RouteTile = ({ name, href, icon, selected, className }: RouteTileProps) =>
   <Link
     href={href}
     className={cn(
-      'flex items-center gap-2',
-      selected ? 'text-white pointer-events-none' : 'text-white/60',
+      'flex items-center gap-2 active:scale-95 transition px-4 py-2.5',
+      selected ? 'text-white pointer-events-none' : 'text-white/60 hover:text-white/80 active:text-white/50',
       className
     )}
   >

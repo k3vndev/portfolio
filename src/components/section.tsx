@@ -12,12 +12,12 @@ interface Props extends React.PropsWithChildren<React.HTMLAttributes<HTMLElement
 export const Section = ({ children, className, bordered = false, ...props }: Props) => (
   <section
     className={cn(
-      'relative flex justify-center w-screen px-4 sm:px-8 lg:px-16 xl:px-0 py-24',
+      'relative w-screen px-4 sm:px-8 lg:px-16 xl:px-0 py-24',
       bordered && 'border-y-3 border-white/10',
       className
     )}
     {...props}
   >
-    <div className='xl:max-w-6xl w-full flex flex-col gap-4'>{children}</div>
+    <div className='xl:max-w-275 w-full flex flex-col gap-4 mx-auto'>{children}</div>
   </section>
 )

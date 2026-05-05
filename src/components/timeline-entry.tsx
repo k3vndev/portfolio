@@ -26,13 +26,13 @@ export const TimelineEntry = ({ title, overview, index, year, chip }: Props) => 
         <CardDecoration color={color} />
 
         <div className='flex items-center justify-between w-full mb-2 flex-wrap gap-x-4 gap-y-1'>
-          <h4 className={cn('font-poppins md:text-xl text-lg font-bold')} style={{ color: colorHex }}>
+          <h4 className={cn('font-poppins md:text-xl text-lg font-light')} style={{ color: colorHex }}>
             {year}
           </h4>
           <Chip color={color}>{chip}</Chip>
         </div>
 
-        <h3 className='font-poppins font-bold md:text-4xl text-2xl text-white mb-2'>{title}</h3>
+        <h3 className='font-poppins font-bold md:text-3xl text-2xl text-white mb-2'>{title}</h3>
         <p className='font-plus md:text-xl text-lg text-bluish-gray'>{overview}</p>
       </main>
     </article>
