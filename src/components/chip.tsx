@@ -30,7 +30,7 @@ export const Chip = ({ children, color, className }: Props) => {
   return (
     <small
       className={cn(
-        'flex items-center gap-2 border w-fit sm:px-4 px-3 sm:py-0.75 py-0.5 rounded-full',
+        'flex items-center gap-2 border w-fit sm:px-4 px-3 sm:py-0.75 py-0.5 rounded-full backdrop-blur-xs',
         styles.border,
         styles.bg,
         className

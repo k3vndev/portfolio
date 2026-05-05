@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <Section className='lg:pt-64 md:pt-48 pt-32 md:pb-48 pb-32'>
+      <Section className='lg:pt-64 md:pt-48 pt-40 md:pb-48 pb-32'>
         <div className='flex flex-col font-bold font-poppins not-sm:gap-2'>
           <h2 className='lg:text-6xl text-5xl text-white'>Hello, I'm</h2>
           <h1 className='lg:text-8xl md:text-7xl text-6xl text-gradient pb-3'>Kevin Rodríguez</h1>
