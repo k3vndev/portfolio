@@ -1,6 +1,6 @@
 'use client'
 
-import { CardDecoration, LinkButton, TechnologyBadges } from '@components'
+import { CardDecoration, ProjectLinks, TechnologyBadges } from '@components'
 import { useResponsiveness } from '@hooks'
 import type { PrimaryColor, Project } from '@types'
 import { cn, getCardColorStyles } from '@utils'
@@ -106,25 +106,14 @@ export const ProjectTile = ({ project, horizontal, className, color, imageSize }
       </Link>
 
       {/* Link buttons, positioned absolutely to avoid hydration issues */}
-      {(code || preview) && (
-        <div
-          className={cn(
-            'flex items-center gap-2 mt-3 absolute md:left-12 sm:left-8 left-4 z-10',
-            metrics?.length ? 'md:bottom-34 sm:bottom-28 bottom-24' : 'md:bottom-12 sm:bottom-8 bottom-4'
-          )}
-        >
-          {code && (
-            <LinkButton icon='github' href={code} newTab small>
-              Code
-            </LinkButton>
-          )}
-          {preview && (
-            <LinkButton icon='preview' href={preview} newTab small>
-              Preview
-            </LinkButton>
-          )}
-        </div>
-      )}
+      <ProjectLinks
+        code={code}
+        preview={preview}
+        className={cn(
+          'absolute md:left-12 sm:left-8 left-4 z-10',
+          metrics?.length ? 'md:bottom-34 sm:bottom-28 bottom-24' : 'md:bottom-12 sm:bottom-8 bottom-4'
+        )}
+      />
     </article>
   )
 }

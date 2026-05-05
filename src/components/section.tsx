@@ -7,7 +7,7 @@ interface Props extends React.PropsWithChildren<React.HTMLAttributes<HTMLElement
 /**
  * The section element to use for each section of the page. It already contins the necessary styles while allowing customization through the className prop.
  *
- * Its child is wrapped in a div that already handles the layout and spacing, edit its styles with `[&>div]:` in the className prop.
+ * Its child is wrapped in a div that already handles the layout and spacing, edit its styles with `[&>.inner]:` or `**:[.inner]:` in the className prop.
  */
 export const Section = ({ children, className, bordered = false, ...props }: Props) => (
   <section
@@ -18,6 +18,6 @@ export const Section = ({ children, className, bordered = false, ...props }: Pro
     )}
     {...props}
   >
-    <div className='xl:max-w-275 w-full flex flex-col gap-4 mx-auto'>{children}</div>
+    <div className='xl:max-w-275 w-full flex flex-col gap-4 mx-auto inner'>{children}</div>
   </section>
 )
