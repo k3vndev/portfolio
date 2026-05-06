@@ -13,7 +13,7 @@ export const Section = ({ children, className, bordered = false, ...props }: Pro
   <section
     className={cn(
       'relative w-screen px-4 sm:px-8 lg:px-16 xl:px-0 py-24',
-      bordered && 'border-y-3 border-white/10',
+      bordered && 'border-y-4 border-dashed border-white/10',
       className
     )}
     {...props}
