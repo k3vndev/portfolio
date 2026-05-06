@@ -7,17 +7,19 @@
  */
 
 import { cn } from '@utils'
-import { useMemo } from 'react'
+import { type JSX, useMemo } from 'react'
 
-export const ParsedText = ({ children, className }: Props) => {
+export const ParsedText = ({ children, className, tag = 'p' }: Props) => {
   const parsed = useMemo(() => {
     const result = children.replace(/\[([^\]]+)\]/g, (_, text) => `<strong>${text}</strong>`)
     const sanitized = result.replace(/<(?!\/?strong\b)[^>]+>/g, '')
     return sanitized
   }, [children])
 
+  const Tag = tag as keyof JSX.IntrinsicElements
+
   return (
-    <p
+    <Tag
       // biome-ignore lint/security/noDangerouslySetInnerHtml: This is safe because the input is controlled and sanitized.
       dangerouslySetInnerHTML={{ __html: parsed }}
       className={cn(
@@ -31,4 +33,5 @@ export const ParsedText = ({ children, className }: Props) => {
 interface Props {
   children: string
   className?: string
+  tag?: 'p' | 'span' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 }

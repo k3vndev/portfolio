@@ -47,3 +47,7 @@ export const PRIMARY_COLORS_MAP: Record<PrimaryColor, string> = {
   '20-light-purple': '#a584ff',
   '30-blue': '#56a0ff'
 }
+
+export const EVENTS = {
+  FORM_SUBMIT: '$form-submit'
+}
