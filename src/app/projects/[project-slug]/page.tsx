@@ -13,7 +13,7 @@ import { useMemo } from 'react'
 export default function ProjectDetailsPage() {
   const params = useParams()
   const projectSlug = params['project-slug']
-  const { media } = useResponsiveness()
+  const { media, loaded } = useResponsiveness()
 
   const project = useMemo(() => {
     if (typeof projectSlug !== 'string') return null
@@ -27,8 +27,6 @@ export default function ProjectDetailsPage() {
     // TODO: Add a more user-friendly 404 page
     return <h1>Project Not Found</h1>
   }
-
-  const images = Array(7).fill(project.images[0])
 
   return (
     <>
@@ -46,31 +44,35 @@ export default function ProjectDetailsPage() {
 
         <ProjectLinks code={project.code} preview={project.preview} className='mt-6' />
 
-        <Carousel
-          className='max-w-full mt-8 rounded-3xl'
-          itemsCount={images.length}
-          gap={16}
-          visibleItems={media.sm ? 2 : 1}
-          infiniteScroll
-          autoScroll={{
-            slideInterval: 7000
-          }}
-          navigationHandler={
-            <NavigationDots className='[&>.active]:bg-linear-to-br [&>.active]:from-10-purple [&>.active]:via-20-light-purple [&>.active]:to-30-blue' />
-          }
-        >
-          {images.map((img, index) => (
-            <CarouselItem key={index} className='h-72 rounded-3xl bg-white/10 overflow-clip'>
-              <Image
-                src={`/projects/${projectSlug}/${img}`}
-                alt={`Project image ${index + 1}`}
-                width={500}
-                height={400}
-                className='size-full object-cover rounded-3xl border-y border-white/10'
-              />
-            </CarouselItem>
-          ))}
-        </Carousel>
+        {loaded ? (
+          <Carousel
+            className='max-w-full mt-8 rounded-3xl'
+            itemsCount={project.images.length}
+            gap={16}
+            visibleItems={media.sm ? 2 : 1}
+            infiniteScroll
+            autoScroll={{
+              slideInterval: 7000
+            }}
+            navigationHandler={
+              <NavigationDots className='[&>.active]:bg-linear-to-br [&>.active]:from-10-purple [&>.active]:via-20-light-purple [&>.active]:to-30-blue' />
+            }
+          >
+            {project.images.map((img, index) => (
+              <CarouselItem key={index} className='h-72 rounded-3xl bg-white/10 overflow-clip'>
+                <Image
+                  src={`/projects/${projectSlug}/${img}`}
+                  alt={`Project image ${index + 1}`}
+                  width={500}
+                  height={400}
+                  className='size-full object-cover rounded-3xl border-y border-white/10'
+                />
+              </CarouselItem>
+            ))}
+          </Carousel>
+        ) : (
+          <div className='h-72 mt-8 rounded-3xl bg-white/10 animate-pulse' />
+        )}
       </Section>
 
       {project.details && (

@@ -19,7 +19,7 @@ export const ProjectLinks = ({ code, preview, className }: Props) => {
       )}
       {preview && (
         <LinkButton icon='preview' href={preview} newTab small>
-          Preview
+          Try it out
         </LinkButton>
       )}
     </div>
