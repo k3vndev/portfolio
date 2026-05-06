@@ -25,8 +25,10 @@ export default function HomePage() {
       {/* Hero */}
       <Section className='lg:pt-64 md:pt-48 pt-40 md:pb-48 pb-32'>
         <div className='flex flex-col font-bold font-poppins not-sm:gap-2'>
-          <h2 className='lg:text-6xl text-5xl text-white'>Hello, I'm</h2>
-          <h1 className='lg:text-8xl md:text-7xl text-6xl text-gradient pb-3'>Kevin Rodríguez</h1>
+          <h2 className='lg:text-6xl sm:text-5xl text-4xl text-white'>Hello, I'm</h2>
+          <h1 className='lg:text-8xl md:text-7xl sm:text-6xl text-5xl text-gradient pb-3 w-fit'>
+            Kevin Rodríguez
+          </h1>
         </div>
 
         <h2 className='font-plus text-bluish-gray lg:text-3xl text-2xl font-medium'>
