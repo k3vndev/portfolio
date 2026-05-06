@@ -1,7 +1,6 @@
 'use client'
 
-import { Button, CardDecoration, Chip, ContactInput, Icon, Section } from '@components'
-import { cn, getCardColorStyles } from '@utils'
+import { Button, CardWrapper, Chip, ContactInput, Icon, Section } from '@components'
 import { useEffect, useRef, useState } from 'react'
 
 export default function ContactPage() {
@@ -29,8 +28,6 @@ export default function ContactPage() {
       }
     }
   }, [])
-
-  const cardStyles = getCardColorStyles('20-light-purple')
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -64,18 +61,18 @@ export default function ContactPage() {
       </Section>
 
       <Section className='pt-0'>
-        <form className={cn('base-card relative group p-12', cardStyles)} onSubmit={handleSubmit}>
-          <div className='flex flex-col gap-0 lg:w-2/3'>
-            <div className='flex items-center gap-x-8 w-full not-sm:flex-col'>
-              <ContactInput label='Name' name='name' />
-              <ContactInput label='Email' name='email' />
+        <CardWrapper color='20-light-purple'>
+          <form onSubmit={handleSubmit}>
+            <div className='flex flex-col gap-0 lg:w-2/3'>
+              <div className='flex items-center gap-x-8 w-full not-sm:flex-col'>
+                <ContactInput label='Name' name='name' />
+                <ContactInput label='Email' name='email' />
+              </div>
+              <ContactInput label='Message' name='message' textarea />
+              <Button icon='mail'>Send Message</Button>
             </div>
-            <ContactInput label='Message' name='message' textarea />
-            <Button icon='mail'>Send Message</Button>
-          </div>
-
-          <CardDecoration color='20-light-purple' />
-        </form>
+          </form>
+        </CardWrapper>
       </Section>
     </>
   )

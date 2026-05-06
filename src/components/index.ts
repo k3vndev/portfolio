@@ -1,5 +1,5 @@
 export * from './button'
-export * from './card-decoration'
+export * from './card-wrapper'
 export * from './cat'
 export * from './chip'
 export * from './contact-input'

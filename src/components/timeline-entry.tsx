@@ -1,7 +1,7 @@
-import { CardDecoration, Chip } from '@components'
+import { CardWrapper, Chip } from '@components'
 import { PRIMARY_COLORS_MAP } from '@consts'
 import type { TimelineEntry as TimelineEntryType } from '@types'
-import { cn, getCardColorStyles, getPrimaryColor } from '@utils'
+import { cn, getPrimaryColor } from '@utils'
 
 interface Props extends TimelineEntryType {
   index: number
@@ -9,7 +9,6 @@ interface Props extends TimelineEntryType {
 
 export const TimelineEntry = ({ title, overview, index, year, chip }: Props) => {
   const color = getPrimaryColor(index)
-  const cardStyle = getCardColorStyles(color)
   const colorHex = PRIMARY_COLORS_MAP[color]
 
   return (
@@ -22,9 +21,7 @@ export const TimelineEntry = ({ title, overview, index, year, chip }: Props) => 
         />
       </div>
 
-      <main className={cn('base-card group relative flex flex-col w-full p-12', cardStyle)}>
-        <CardDecoration color={color} />
-
+      <CardWrapper color={color} preventHoverEffect>
         <div className='flex items-center justify-between w-full mb-2 flex-wrap gap-x-4 gap-y-1'>
           <h4 className={cn('font-poppins md:text-xl text-lg font-light')} style={{ color: colorHex }}>
             {year}
@@ -34,7 +31,7 @@ export const TimelineEntry = ({ title, overview, index, year, chip }: Props) => 
 
         <h3 className='font-poppins font-bold md:text-3xl text-2xl text-white mb-2'>{title}</h3>
         <p className='font-plus md:text-xl text-lg text-bluish-gray'>{overview}</p>
-      </main>
+      </CardWrapper>
     </article>
   )
 }

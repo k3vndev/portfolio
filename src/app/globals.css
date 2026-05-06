@@ -26,6 +26,18 @@
   @apply bg-linear-to-r from-[#cfd0ff] via-[#d6c9ff] to-[#a8ceff] bg-clip-text text-transparent;
 }
 
-@utility base-card {
-  @apply bg-linear-to-br to-white/10 border transition rounded-[1.25rem] overflow-clip backdrop-blur-md;
+:root {
+  --card-p: 3rem;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --card-p: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --card-p: 1.5rem;
+  }
 }

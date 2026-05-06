@@ -1,10 +1,10 @@
 'use client'
 
-import { CardDecoration, TechnologyBadges } from '@components'
+import { CardWrapper, TechnologyBadges } from '@components'
 import { ProjectLinks } from '@components/projects'
 import { useResponsiveness } from '@hooks'
 import type { PrimaryColor, Project } from '@types'
-import { cn, getCardColorStyles, kebabCase } from '@utils'
+import { cn, kebabCase } from '@utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo } from 'react'
@@ -35,8 +35,8 @@ export const ProjectTile = ({ project, horizontal, className, color, imageSize }
 
   const horizontalStyles =
     horizontal && media.lg
-      ? { link: 'flex-row-reverse', img: 'w-1/2', main: 'md:py-12 sm:py-8 py-4 md:pl-12 sm:pl-8 pl-4' }
-      : { link: 'flex-col', img: 'w-full h-64', main: 'md:pb-12 sm:pb-8 pb-4 md:px-12 sm:px-8 px-4' }
+      ? { link: 'flex-row-reverse', img: 'w-1/2', main: 'py-(--card-p) pl-(--card-p)' }
+      : { link: 'flex-col', img: 'w-full h-64', main: 'pb-(--card-p) px-(--card-p)' }
 
   const maskImageGradient =
     media.lg && horizontal
@@ -44,11 +44,12 @@ export const ProjectTile = ({ project, horizontal, className, color, imageSize }
       : 'linear-gradient(to bottom, white 50%, transparent)'
 
   return (
-    <article className={cn('relative', className)} aria-label={`Project card for ${title}`}>
-      <Link
-        href={`/projects/${titleKebab}`}
-        className={cn('flex w-full base-card group', horizontalStyles.link, getCardColorStyles(color))}
-      >
+    <CardWrapper
+      color={color}
+      className={cn('relative p-0', className)}
+      aria-label={`Project card for ${title}`}
+    >
+      <Link href={`/projects/${titleKebab}`} className={cn('flex w-full', horizontalStyles.link)}>
         <Image
           width={imageSize?.width ?? 600}
           height={imageSize?.height ?? 500}
@@ -101,9 +102,6 @@ export const ProjectTile = ({ project, horizontal, className, color, imageSize }
             </div>
           )}
         </div>
-
-        {/* Decorative line at start */}
-        <CardDecoration color={color} />
       </Link>
 
       {/* Link buttons, positioned absolutely to avoid hydration issues */}
@@ -111,10 +109,10 @@ export const ProjectTile = ({ project, horizontal, className, color, imageSize }
         code={code}
         preview={preview}
         className={cn(
-          'absolute md:left-12 sm:left-8 left-4 z-10',
-          metrics?.length ? 'md:bottom-34 sm:bottom-28 bottom-24' : 'md:bottom-12 sm:bottom-8 bottom-4'
+          'absolute left-(--card-p) z-10',
+          metrics?.length ? 'bottom-[calc(var(--card-p)+4.75rem)]' : 'bottom-(--card-p)'
         )}
       />
-    </article>
+    </CardWrapper>
   )
 }
