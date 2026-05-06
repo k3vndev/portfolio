@@ -27,7 +27,7 @@ const ButtonInner = ({ small, icon, children }: ButtonInnerProps) => (
   <>
     <div
       className={cn(
-        'flex items-center gap-2 font-plus font-normal bg-[#02020A] group-hover:bg-[#02020A]/95 rounded-full not-sm:[&>svg]:size-6 not-sm:[&>svg]:max-w-6',
+        'flex items-center gap-2 font-plus font-normal bg-[#02020A] group-hover:bg-[#02020A]/95 rounded-full not-sm:[&>svg]:size-6 not-sm:[&>svg]:max-w-6 text-nowrap',
         small
           ? '[&>svg]:size-5 [&>svg]:max-w-5 text-lg px-5 py-1.5'
           : '[&>svg]:size-8 [&>svg]:max-w-8 sm:text-xl text-lg sm:px-7 px-5 sm:py-2 py-1.5'
@@ -43,7 +43,7 @@ const ButtonInner = ({ small, icon, children }: ButtonInnerProps) => (
 
 const getBaseClassName = (className?: string) =>
   cn(
-    'rounded-full w-fit p-0.5 relative flex items-center justify-center overflow-clip group hover:scale-102 active:scale-90 active:brightness-50 transition not-disabled:cursor-pointer',
+    'rounded-full w-fit p-0.5 relative flex items-center justify-center overflow-clip group hover:scale-102 active:scale-90 active:brightness-50 transition not-disabled:cursor-pointer z-20',
     className
   )
 

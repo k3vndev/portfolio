@@ -80,7 +80,7 @@ export const NavigationBar = () => {
             {selectedRoute ? (
               <RouteTile {...selectedRoute} selected className='text-2xl' />
             ) : (
-              <span className='font-poppins font-medium py-3'>404 Not Found</span>
+              <span className='font-poppins font-medium py-3 text-nowrap'>404 Not Found</span>
             )}
 
             <button onClick={() => setMobileMenuOpen(true)}>

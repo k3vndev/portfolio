@@ -1,6 +1,6 @@
 'use client'
 
-import { Section, SectionHeader, TechnologyBadges } from '@components'
+import { NotFoundDisplay, Section, SectionHeader, TechnologyBadges } from '@components'
 import { ProjectDetails, ProjectLinks } from '@components/projects'
 import { GAMEDEV_PROJECT, PROJECTS } from '@consts'
 import { useResponsiveness } from '@hooks'
@@ -24,8 +24,15 @@ export default function ProjectDetailsPage() {
   }, [params])
 
   if (!project) {
-    // TODO: Add a more user-friendly 404 page
-    return <h1>Project Not Found</h1>
+    return (
+      <NotFoundDisplay
+        message='Sorry, the project you are looking for does not exist or may have been removed.'
+        action={{
+          label: 'Back to Projects',
+          href: '/projects'
+        }}
+      />
+    )
   }
 
   return (
