@@ -1,18 +1,24 @@
 'use client'
 
 import { EVENTS } from '@consts'
+import type { ContactFormError } from '@types'
 import { cn } from '@utils'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 interface Props {
-  label: string
   name: string
   textarea?: boolean
+  error: ContactFormError
 }
 
-export const ContactInput = ({ label, name, textarea = false }: Props) => {
+export const ContactInput = ({ name, textarea = false, error }: Props) => {
   const [value, setValue] = useState('')
   const inputRef = useRef(null)
+
+  const isOnError = useMemo(() => {
+    if (!error.error) return false
+    return error.names.includes(name)
+  }, [error])
 
   const recalculateHeight = () => {
     if (!inputRef.current || !textarea) return
@@ -37,15 +43,21 @@ export const ContactInput = ({ label, name, textarea = false }: Props) => {
     value,
     onChange: handleChange,
     name,
-    className:
-      'px-3 py-1.5 outline-none bg-20-light-purple/10 focus:bg-20-light-purple/15 rounded-lg border border-20-light-purple/25 focus:border-20-light-purple/50 text-zinc-300 transition'
+    className: cn(
+      'px-3 py-1.5 outline-none bg-20-light-purple/10 focus:bg-20-light-purple/15 rounded-lg  text-zinc-300 transition-all border',
+      isOnError
+        ? 'border-red-400/40 focus:border-red-500/70'
+        : 'focus:border-20-light-purple/50 border-20-light-purple/25'
+    )
   }
 
   useEffect(() => {
     const handleFormSubmit = () => setValue('')
-    document.addEventListener(EVENTS.FORM_SUBMIT, handleFormSubmit)
-    return () => document.removeEventListener(EVENTS.FORM_SUBMIT, handleFormSubmit)
+    document.addEventListener(EVENTS.FORM_SUBMITTED, handleFormSubmit)
+    return () => document.removeEventListener(EVENTS.FORM_SUBMITTED, handleFormSubmit)
   }, [])
+
+  const label = name.charAt(0).toUpperCase() + name.slice(1)
 
   return (
     <label className='flex flex-col gap-1.5 sm:mb-8 mb-4 w-full'>

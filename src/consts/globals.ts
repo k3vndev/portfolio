@@ -49,5 +49,5 @@ export const PRIMARY_COLORS_MAP: Record<PrimaryColor, string> = {
 }
 
 export const EVENTS = {
-  FORM_SUBMIT: '$form-submit'
+  FORM_SUBMITTED: '$form-submitted'
 }

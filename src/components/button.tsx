@@ -3,7 +3,7 @@ import { cn } from '@utils'
 import Link from 'next/link'
 import { Icon } from './icons'
 
-interface ButtonProps {
+interface BaseButtonProps {
   small?: boolean
   className?: string
   children: React.ReactNode
@@ -12,7 +12,7 @@ interface ButtonProps {
   onClick?: () => void
 }
 
-interface LinkButtonProps extends ButtonProps {
+interface LinkButtonProps extends BaseButtonProps {
   href: string
   newTab?: boolean
 }
@@ -43,7 +43,7 @@ const ButtonInner = ({ small, icon, children }: ButtonInnerProps) => (
 
 const getBaseClassName = (className?: string) =>
   cn(
-    'rounded-full w-fit p-0.5 relative flex items-center justify-center overflow-clip group hover:scale-102 active:scale-90 active:brightness-50 transition not-disabled:cursor-pointer z-20',
+    'rounded-full w-fit p-0.5 relative flex items-center justify-center overflow-clip group hover:scale-102 active:scale-90 active:brightness-50 transition not-disabled:cursor-pointer z-20 disabled:pointer-events-none disabled:opacity-60',
     className
   )
 
@@ -62,8 +62,22 @@ export const LinkButton = ({ small, newTab, className, children, icon, ...props 
   )
 }
 
-export const Button = ({ children, className, icon, onClick, small, style }: ButtonProps) => (
-  <button className={getBaseClassName(className)} type='button' onClick={onClick} style={style}>
+interface ButtonProps extends BaseButtonProps {
+  type?: React.ButtonHTMLAttributes<HTMLButtonElement>['type']
+  disabled?: boolean
+}
+
+export const Button = ({
+  children,
+  className,
+  icon,
+  onClick,
+  small,
+  style,
+  type = 'button',
+  disabled = false
+}: ButtonProps) => (
+  <button className={getBaseClassName(className)} {...{ onClick, style, type, disabled }}>
     <ButtonInner {...{ children, small, icon }} />
   </button>
 )

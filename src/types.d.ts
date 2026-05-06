@@ -56,3 +56,9 @@ export type ProjectDetails =
       type: 'bullets'
       content: string[]
     }
+
+export interface ContactFormError {
+  error: boolean
+  message: string
+  names: string[]
+}
