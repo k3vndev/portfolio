@@ -10,7 +10,7 @@ export const CONTACT_FORM_ERRORS = {
     name: 'name'
   },
   NAME_TOO_LONG: {
-    display: 'Name must be at most 50 characters',
+    display: 'Name is too long!',
     name: 'name'
   },
   EMAIL_INVALID: {
@@ -22,7 +22,7 @@ export const CONTACT_FORM_ERRORS = {
     name: 'message'
   },
   MESSAGE_TOO_LONG: {
-    display: 'Message must be at most 999 characters',
+    display: 'Message is too long!',
     name: 'message'
   }
 } as const
@@ -37,12 +37,12 @@ export const ContactFormSchema = z.object({
   name: z
     .string({ error: ERR.NAME_REQUIRED })
     .min(3, { error: ERR.NAME_TOO_SHORT })
-    .max(50, { error: ERR.NAME_TOO_LONG })
+    .max(99, { error: ERR.NAME_TOO_LONG })
     .trim(),
   email: z.email({ error: ERR.EMAIL_INVALID }).trim(),
   message: z
     .string({ error: ERR.MESSAGE_REQUIRED })
     .min(1, { error: ERR.MESSAGE_REQUIRED })
-    .max(999, { error: ERR.MESSAGE_TOO_LONG })
+    .max(2999, { error: ERR.MESSAGE_TOO_LONG })
     .trim()
 })
