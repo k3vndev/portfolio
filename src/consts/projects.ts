@@ -12,7 +12,7 @@ export const TECHNOLOGIES_MAP = {
   'tailwind-css': 'Tailwind CSS',
   'node-js': 'Node.js',
   python: 'Python',
-  'python-white': 'Python White',
+  pillow: 'Pillow',
   css: 'CSS',
   zod: 'Zod',
   supabase: 'Supabase',
@@ -138,7 +138,7 @@ export const PROJECTS: Project[] = [
     overview:
       'Web-based pixel art platform for creating and sharing 8×8 artwork.\nIncludes a public gallery and small interactive mini-games.',
     description:
-      'Pixi Paint is a web-based pixel art platform built around a simple idea: making creative tools accessible instantly. It allows users to create, save, and share 8×8 pixel artwork directly in the browser, without requiring accounts or setup.\nThe platform focuses on removing friction from the creative process, enabling users to start drawing, export their work, or publish it to a public gallery in seconds.',
+      'Pixi Paint is a web-based pixel art platform built around a simple idea: making creative tools accessible instantly. It allows users to create, save, and share 8×8 pixel artwork directly in the browser, and without being an expert in design or pixel art.\nThe platform focuses on removing friction from the creative process, enabling users to start drawing, export their work, or publish it to a public gallery in seconds.',
     code: 'https://github.com/k3vndev/pixi-paint',
     preview: 'https://pixi-paint.vercel.app',
     images: ['1.webp', '2.webp', '3.webp', '4.webp', '5.webp'],

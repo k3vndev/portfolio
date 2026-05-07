@@ -596,7 +596,7 @@ export const Python = (props: Props) => (
   </svg>
 )
 
-export const PythonWhite = (props: Props) => (
+export const Pillow = (props: Props) => (
   <svg {...props} fill='none' viewBox='16 16 32 32'>
     <path
       fill='white'
