@@ -66,19 +66,19 @@ export default function ProjectDetailsPage() {
             }
           >
             {project.images.map((img, index) => (
-              <CarouselItem key={index} className='h-72 rounded-3xl bg-white/10 overflow-clip'>
+              <CarouselItem key={index} className='h-72 rounded-3xl bg-10-purple/10 overflow-clip'>
                 <Image
                   src={`/projects/${projectSlug}/${img}`}
                   alt={`Project image ${index + 1}`}
                   width={500}
                   height={400}
-                  className='size-full object-cover rounded-3xl border-y border-white/10'
+                  className='size-full object-cover rounded-3xl border-y border-10-purple/10'
                 />
               </CarouselItem>
             ))}
           </Carousel>
         ) : (
-          <div className='h-72 mt-8 rounded-3xl bg-white/10 animate-pulse' />
+          <div className='h-72 mt-8 rounded-3xl bg-10-purple/10 animate-pulse' />
         )}
       </Section>
 

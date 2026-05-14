@@ -54,7 +54,7 @@ const Paragraph = ({ content }: ParagraphProps) => {
   const paragraphs = useMemo(() => content.split('\n').filter(p => p.trim() !== ''), [content])
 
   return (
-    <div className='flex flex-col gap-4'>
+    <div className='flex flex-col gap-4 mb-1'>
       {paragraphs.map((p, index) => (
         <ParsedText className='text-bluish-gray font-plus sm:text-xl text-lg' key={index}>
           {p}

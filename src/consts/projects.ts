@@ -23,6 +23,10 @@ export const TECHNOLOGIES_MAP = {
   blender: 'Blender'
 } as const satisfies Partial<Record<IconName, string>>
 
+/*
+  Projects data with detailed descriptions, features, and technical highlights
+  In paragraph content, [bracketed text] indicates emphasis or key terms related to the project and '\n' indicates line breaks for better readability in the UI.
+*/
 export const PROJECTS: Project[] = [
   {
     title: 'Studymate',
@@ -30,7 +34,7 @@ export const PROJECTS: Project[] = [
     overview:
       'AI-powered learning platform that generates and manages personalized Studyplans.\nUsers can track progress, complete structured learning paths, and interact with an AI assistant designed to guide their studies in real time.',
     description:
-      'Studymate is an AI-powered web application designed to support structured self-learning.\nIt allows users to generate personalized study plans, track their progress, and interact with an AI assistant that adapts to their current learning state.',
+      'Studymate is an AI-powered web application designed to support structured self-learning.\nIt allows users to generate personalized Studyplans, track their progress, and interact with an AI assistant that adapts to their current learning state.',
     code: 'https://github.com/k3vndev/studymate',
     preview: 'https://studymate-web.vercel.app',
     images: ['1.webp', '2.webp', '3.webp', '4.webp', '5.webp', '6.webp', '7.webp'],
@@ -297,6 +301,101 @@ export const PROJECTS: Project[] = [
           'Node.js and Express for backend logic.',
           'MongoDB for storing quizzes and user data.',
           'Zod for validation and data consistency.'
+        ]
+      }
+    ]
+  },
+  {
+    title: 'IP Geolocation',
+    overview: 'Find out the location of any IP address worldwide and see it on an interactive map with ease.',
+    description:
+      'A website that tracks your IP address and displays it for you. It also includes a map and information about your estimated location. You can also search for any other IP address worldwide and see its location on the map.',
+    technologies: ['react', 'leaflet', 'java-script', 'css'],
+    images: ['1.webp', '2.webp', '3.webp'],
+    preview: 'https://ip-geolocation-kevdev.netlify.app/',
+    code: 'https://github.com/k3vndev/ip-geolocation',
+    details: [
+      {
+        type: 'title',
+        content: { text: 'Features' }
+      },
+      {
+        type: 'bullets',
+        content: [
+          '🌐 [IP Lookup] → Instantly find the location of any IP address worldwide.',
+          '🗺️ [Interactive Map] → Visualize IP locations on a dynamic, zoomable map.',
+          '📊 [Visual Info] → Get the country flag displayed next to the IP information.',
+          '⚡ [Fast & Responsive] → Enjoy quick lookups with a user-friendly interface.'
+        ]
+      },
+      {
+        type: 'title',
+        content: { text: 'My Role in the Project' }
+      },
+      {
+        type: 'paragraph',
+        content:
+          'I developed this project independently, handling all aspects of design, development, and deployment.\nThis included setting up the React frontend, integrating the Leaflet library for [map functionality], and implementing the logic for fetching the [REST APIs] to retrieve IP geolocation data.'
+      },
+      {
+        type: 'bullets',
+        content: [
+          'Designed and implemented the entire frontend using React.',
+          'Integrated Leaflet for [interactive map features].',
+          'Implemented API calls to fetch and display [geolocation data].',
+          'Handled [deployment] and [optimization] for performance.'
+        ]
+      }
+    ]
+  },
+  {
+    title: 'IMG Compress',
+    overview:
+      'A simple CLI tool to compress images directly from your terminal. Supports multiple formats and customizable compression levels.',
+    description:
+      'A command-line interface (CLI) tool that allows users to compress images directly from their terminal.\nBy simply navigating to the folder containing images and executing the imgc command, users can easily reduce file sizes and save storage space with multiple compression options.',
+    technologies: ['python', 'pillow'],
+    code: 'https://github.com/k3vndev/img-compress',
+    images: ['1.webp', '2.webp', '3.webp'],
+    details: [
+      {
+        type: 'title',
+        content: { text: 'Main Features' }
+      },
+      {
+        type: 'bullets',
+        content: [
+          '🖼️ [Image Compression] → Compress images directly from the terminal with ease.',
+          '🚀 [Easy Setup] → Simple installation process to get started quickly.',
+          '🧩 [Customizable Options] → Filter formats, set output names, and adjust quality settings.',
+          '📁 [Organized Output] → Compressed images are saved in a dedicated output folder.'
+        ]
+      },
+      {
+        type: 'title',
+        content: { text: 'Technical Highlights', icon: 'code' }
+      },
+      {
+        type: 'paragraph',
+        content:
+          'I developed this project independently, handling all aspects of design, development, and deployment.\nThis included setting up the Python environment, integrating the Pillow library for image processing, and implementing the CLI commands for user interaction.'
+      },
+      {
+        type: 'subtitle',
+        content: 'Arquitectural Overview'
+      },
+      {
+        type: 'paragraph',
+        content:
+          'The tool is structured around a [modular design] with [object-oriented principles], separating concerns between the CLI interface, image processing logic, and file management.\nThis allows for [maintainability] and [scalability] as new features or formats can be added without affecting the overall structure.'
+      },
+      {
+        type: 'bullets',
+        content: [
+          '[Modular design] with clear separation of concerns.',
+          '[Object-oriented approach] for maintainability.',
+          'Integration of Pillow for efficient image processing.',
+          'CLI commands structured for intuitive user interaction.'
         ]
       }
     ]
