@@ -38,6 +38,7 @@ export const PROJECTS: Project[] = [
     code: 'https://github.com/k3vndev/studymate',
     preview: 'https://studymate-web.vercel.app',
     images: ['1.webp', '2.webp', '3.webp', '4.webp', '5.webp', '6.webp', '7.webp'],
+    starred: true,
     metrics: [
       {
         value: '7+',
@@ -146,6 +147,7 @@ export const PROJECTS: Project[] = [
     code: 'https://github.com/k3vndev/pixi-paint',
     preview: 'https://pixi-paint.vercel.app',
     images: ['1.webp', '2.webp', '3.webp', '4.webp', '5.webp'],
+    starred: true,
     details: [
       {
         type: 'title',
@@ -357,6 +359,7 @@ export const PROJECTS: Project[] = [
     technologies: ['python', 'pillow'],
     code: 'https://github.com/k3vndev/img-compress',
     images: ['1.webp', '2.webp', '3.webp'],
+    starred: true,
     details: [
       {
         type: 'title',

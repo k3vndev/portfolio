@@ -1,7 +1,7 @@
 'use client'
 
 import { CardWrapper, TechnologyBadges } from '@components'
-import { ProjectLinks } from '@components/projects'
+import { ProjectLinks, StarredGradientStar } from '@components/projects'
 import { useResponsiveness } from '@hooks'
 import type { PrimaryColor, Project } from '@types'
 import { cn, kebabCase } from '@utils'
@@ -18,10 +18,11 @@ interface Props {
     width: number
     height: number
   }
+  starredStar?: boolean
 }
 
-export const ProjectTile = ({ project, horizontal, className, color, imageSize }: Props) => {
-  const { title, technologies, overview, code, preview, images, metrics } = project
+export const ProjectTile = ({ project, horizontal, className, color, imageSize, starredStar }: Props) => {
+  const { title, technologies, overview, code, preview, images, metrics, starred } = project
   const titleKebab = useMemo(() => kebabCase.to(title), [title])
 
   const { media } = useResponsiveness()
@@ -102,6 +103,8 @@ export const ProjectTile = ({ project, horizontal, className, color, imageSize }
             </div>
           )}
         </div>
+
+        {starredStar && starred && <StarredGradientStar index={Math.random()} />}
       </Link>
 
       {/* Link buttons, positioned absolutely to avoid hydration issues */}

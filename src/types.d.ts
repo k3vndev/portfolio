@@ -27,6 +27,7 @@ export interface Project {
     label: string
   }>
   details?: ProjectDetails[]
+  starred?: boolean
 }
 
 export interface TimelineEntry {

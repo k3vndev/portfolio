@@ -61,7 +61,7 @@ interface ProjectsListProps {
 const ProjectsList = ({ projects }: ProjectsListProps) => (
   <div className='flex flex-col gap-8 w-full'>
     {projects.map((project, index) => (
-      <ProjectTile key={project.title} project={project} color={getPrimaryColor(index)} />
+      <ProjectTile key={project.title} project={project} color={getPrimaryColor(index)} starredStar />
     ))}
   </div>
 )
