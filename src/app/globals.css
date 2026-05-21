@@ -28,16 +28,19 @@
 
 :root {
   --card-p: 3rem;
+  --app-mt: 4rem;
 }
 
 @media (max-width: 768px) {
   :root {
     --card-p: 2rem;
+    --app-mt: 3rem;
   }
 }
 
 @media (max-width: 640px) {
   :root {
     --card-p: 1.5rem;
+    --app-mt: 2rem;
   }
 }

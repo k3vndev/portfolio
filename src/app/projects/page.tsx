@@ -30,7 +30,7 @@ export default function ProjectsPage() {
   }, [allProjects])
 
   return (
-    <Section className='sm:mt-16 mt-12'>
+    <Section className='mt-(--app-mt)'>
       <SectionHeader
         title='Explore my best work'
         overview='From full-scale applications to focused experiments, these projects reflect how I design, build, and ship real products.'

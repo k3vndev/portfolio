@@ -33,7 +33,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <Section className='mt-8 md:mb-16 sm:mb-12 mb-8 pb-0'>
+      <Section className='mt-(--app-mt) md:mb-16 sm:mb-12 mb-8 pb-0'>
         <Chip color='20-light-purple'>Get in Touch</Chip>
         <h1 className='font-poppins font-bold md:text-6xl sm:text-5xl text-4xl max-w-2xl [&>strong]:text-gradient'>
           Let’s <strong>build</strong> your next <strong>project</strong> together

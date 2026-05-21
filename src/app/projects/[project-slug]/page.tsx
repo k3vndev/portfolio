@@ -37,7 +37,7 @@ export default function ProjectDetailsPage() {
 
   return (
     <>
-      <Section className='mt-12 pb-0 **:[.inner]:gap-0'>
+      <Section className='mt-(--app-mt) pb-0 **:[.inner]:gap-0'>
         <SectionHeader
           title={project.title}
           overview={project.description || project.overview}
