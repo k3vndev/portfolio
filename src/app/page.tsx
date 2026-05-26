@@ -89,7 +89,7 @@ export default function HomePage() {
         <SectionHeader
           title='Game Development'
           icon='gamepad'
-          overview='My experience here has strengthened my ability to design and manage complex systems, handle state-driven logic, and structure large interactive projects from scratch.'
+          overview='I make games as a hobby, which has sharpened my ability to handle state-driven logic, and structure large projects from scratch.'
           chip={{ color: '30-blue', label: 'System Design' }}
         />
 
