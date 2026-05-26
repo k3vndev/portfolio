@@ -104,7 +104,7 @@ export const ProjectTile = ({ project, horizontal, className, color, imageSize, 
           )}
         </div>
 
-        {starredStar && starred && <StarredGradientStar index={Math.random()} />}
+        {starredStar && starred && <StarredGradientStar />}
       </Link>
 
       {/* Link buttons, positioned absolutely to avoid hydration issues */}

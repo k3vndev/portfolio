@@ -104,8 +104,10 @@ const RouteTile = ({ name, href, icon, selected, className }: RouteTileProps) =>
   <Link
     href={href}
     className={cn(
-      'flex items-center gap-2 active:scale-95 transition px-4 py-2.5',
-      selected ? 'text-white pointer-events-none' : 'text-white/60 hover:text-white/80 active:text-white/50',
+      'flex items-center gap-2 active:scale-95 transition-all px-4 py-2.5 sm:border-b-2',
+      selected
+        ? 'text-white pointer-events-none border-white/40 duration-500'
+        : 'text-white/50 hover:text-white/80 active:text-white/50 border-transparent',
       className
     )}
   >

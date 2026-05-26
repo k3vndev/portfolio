@@ -41,22 +41,22 @@ export const PROJECTS: Project[] = [
     starred: true,
     metrics: [
       {
-        value: '7+',
-        label: 'UI Screens'
+        value: 'Full',
+        label: 'Auth System'
       },
       {
         value: '3+',
         label: 'AI Features'
       },
       {
-        value: 'Full',
-        label: 'Auth System'
+        value: '7+',
+        label: 'UI Screens'
       }
     ],
     details: [
       {
         type: 'title',
-        content: { text: 'Features' }
+        content: { text: 'Main Features' }
       },
       {
         type: 'paragraph',
@@ -274,7 +274,7 @@ export const PROJECTS: Project[] = [
       {
         type: 'paragraph',
         content:
-          'Quizzie is built around a [creation → play → feedback] loop, where users can design quizzes, share them, and immediately interact with the results.'
+          'Quizzie is built around a [creatio:n pla:y feedback] loop, where users can design quizzes, share them, and immediately interact with the results.'
       },
       {
         type: 'bullets',
@@ -324,10 +324,10 @@ export const PROJECTS: Project[] = [
       {
         type: 'bullets',
         content: [
-          '🌐 [IP Lookup] → Instantly find the location of any IP address worldwide.',
-          '🗺️ [Interactive Map] → Visualize IP locations on a dynamic, zoomable map.',
-          '📊 [Visual Info] → Get the country flag displayed next to the IP information.',
-          '⚡ [Fast & Responsive] → Enjoy quick lookups with a user-friendly interface.'
+          '🌐 [IP Lookup:] Instantly find the location of any IP address worldwide.',
+          '🗺️ [Interactive Map:] Visualize IP locations on a dynamic, zoomable map.',
+          '📊 [Visual Info:] Get the country flag displayed next to the IP information.',
+          '⚡ [Fast & Responsive:] Enjoy quick lookups with a user-friendly interface.'
         ]
       },
       {
@@ -368,10 +368,10 @@ export const PROJECTS: Project[] = [
       {
         type: 'bullets',
         content: [
-          '🖼️ [Image Compression] → Compress images directly from the terminal with ease.',
-          '🚀 [Easy Setup] → Simple installation process to get started quickly.',
-          '🧩 [Customizable Options] → Filter formats, set output names, and adjust quality settings.',
-          '📁 [Organized Output] → Compressed images are saved in a dedicated output folder.'
+          '🖼️ [Image Compression:] Compress images directly from the terminal with ease.',
+          '🚀 [Easy Setup:] Simple installation process to get started quickly.',
+          '🧩 [Customizable Options:] Filter formats, set output names, and adjust quality settings.',
+          '📁 [Organized Output:] Compressed images are saved in a dedicated output folder.'
         ]
       },
       {
@@ -399,6 +399,120 @@ export const PROJECTS: Project[] = [
           '[Object-oriented approach] for maintainability.',
           'Integration of Pillow for efficient image processing.',
           'CLI commands structured for intuitive user interaction.'
+        ]
+      }
+    ]
+  },
+  {
+    title: 'React Carousel',
+    overview:
+      'A composable, scroll-snap powered carousel for React and TailwindCSS. Build your own navigation, transitions, and carousel behavior with ease.',
+    description:
+      'A React component library that provides a composable, scroll-snap powered carousel for building custom carousels with React and TailwindCSS.\nIt allows developers to create their own navigation, transitions, and carousel behavior with ease, while providing a solid foundation for performance and accessibility.',
+    starred: true,
+    technologies: ['react', 'tailwind-css'],
+    code: 'https://github.com/k3vndev/react-carousel',
+    preview: 'https://react-carousel.k3vn.dev',
+    images: ['1.webp', '2.webp', '3.webp', '4.webp'],
+
+    /*
+    🧱 Agnostic: Render anything — images, cards, or custom components.
+🧩 Composable: Build your own UI — arrows, dots, autoplay, or custom transitions.
+⚙️ Hooks-first: Powered by useCarousel and React context — no massive config objects.
+💨 Smooth: Uses native scroll behavior with scroll-snap.
+🧠 Typed: Full TypeScript support.
+🪶 Lightweight: No external dependencies beyond React and Tailwind.
+    */
+
+    details: [
+      {
+        type: 'title',
+        content: { text: 'Key Features' }
+      },
+      {
+        type: 'paragraph',
+        content:
+          'React Carousel is designed to be a flexible and powerful tool for building custom carousels in React, with a focus on [composability], [performance], and [developer experience].'
+      },
+      {
+        type: 'bullets',
+        content: [
+          '🧱 [Agnostic:] Render anything — images, cards, or custom components.',
+          '🧩 [Composable:] Build your own UI — arrows, dots, autoplay, or custom transitions.',
+          '⚙️ [Hooks-first:] Powered by useCarousel and React context — no massive config objects.',
+          '💨 [Smooth:] Uses native scroll behavior with scroll-snap.',
+          '🧠 [Typed:] Full TypeScript support.',
+          '🪶 [Lightweight:] No external dependencies beyond React and Tailwind.'
+        ]
+      },
+      {
+        type: 'title',
+        content: { text: 'Modular Architecture' }
+      },
+      {
+        type: 'paragraph',
+        content:
+          'The library is built around a [modular architecture] that separates concerns between the core carousel logic, UI components, and hooks for state management.\nThis allows developers to easily customize and extend the functionality without being constrained by a rigid structure.'
+      },
+      {
+        type: 'subtitle',
+        content: 'Create your custom Navigation Handlers'
+      },
+      {
+        type: 'paragraph',
+        content:
+          'React Carousel provides a set of hooks and context for managing carousel state, allowing developers to create their own navigation handlers, autoplay logic, and transition effects with ease.\nThis flexibility empowers developers to build unique carousel experiences tailored to their specific needs.'
+      }
+    ]
+  },
+  {
+    title: 'Timeline Creator',
+    overview:
+      'A web application that allows users to create, customize, and share interactive timelines for personal projects, historical events, or educational purposes.',
+    description:
+      'Timeline Creator is a web application that enables users to create, customize, and share interactive timelines for various purposes, such as personal projects, historical events, or educational content.\nThe platform provides an intuitive interface for adding events, customizing their appearance, and sharing the resulting timelines with others.',
+    technologies: ['react', 'css', 'type-script'],
+    code: 'https://github.com/k3vndev/timeline-creator',
+    preview: 'https://timeline-creator.netlify.app',
+    images: ['1.webp', '2.webp', '3.webp', '4.webp'],
+    details: [
+      {
+        type: 'title',
+        content: { text: 'Features' }
+      },
+      {
+        type: 'paragraph',
+        content:
+          'Timeline Creator offers a range of features designed to make timeline creation easy and enjoyable, while also providing powerful customization options for users to create unique and engaging timelines.'
+      },
+      {
+        type: 'bullets',
+        content: [
+          '🧩 [Inline editing] → the creation and view page are the same. Click any item to edit it.',
+          '📍 [Points & marks] → points for full events (title, description, image), marks for quick labels like years or timestamps.',
+          '🖼️ [Drag & drop images] → drop images anywhere to create new points or replace existing ones instantly.',
+          '📁 [Timeline manager] → create, switch, clone, or delete timelines through a compact top-left menu.',
+          '📤 [Import/export] → download your timeline as JSON and reload it later.',
+          '🖱️ [Simple controls] → hover + click for points, Shift + click for marks; extremely lightweight workflow.',
+          '⚠️ [Desktop-first] → mobile support is limited (intentionally kept simple for now).'
+        ]
+      },
+      {
+        type: 'title',
+        content: { text: 'My Role and Technical Highlights' }
+      },
+      {
+        type: 'paragraph',
+        content:
+          'I developed this project independently, handling all aspects of design, development, and deployment.\nThis included setting up the React frontend, designing the data model for timelines, implementing the drag-and-drop image functionality, and creating a user-friendly interface for timeline creation and management.'
+      },
+      {
+        type: 'bullets',
+        content: [
+          'Created a modular data model for timelines, points, and marks.',
+          'Implemented drag-and-drop functionality for image handling.',
+          'Developed a user-friendly interface with intuitive controls and responsive design.',
+          'Handled state management, persistence, and all user interactions with a focus on simplicity and fluid UX.'
         ]
       }
     ]
